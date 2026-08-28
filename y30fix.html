@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 30-Minute Google Maps Fix</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root{
+    --teal:#1B4B4A;
+    --teal-light:#E4EEEC;
+    --coral:#E8604C;
+    --coral-light:#FBE7E2;
+    --cream:#FBF6EF;
+    --dark:#2B2B2B;
+    --gray:#6E6E6E;
+    --line:#E5DFD4;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--dark);
+    font-family: 'Georgia', 'Iowan Old Style', serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 100px;}
+
+  /* ---- Cover ---- */
+  .cover{
+    text-align:center;
+    padding:70px 24px 50px;
+  }
+  .kicker{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.14em;
+    color:var(--coral);
+    margin-bottom:18px;
+  }
+  .cover h1{
+    font-size:44px;
+    color:var(--teal);
+    margin:0 0 18px;
+    line-height:1.12;
+    font-weight:700;
+  }
+  .cover p.sub{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:16px;
+    color:var(--dark);
+    max-width:480px;
+    margin:0 auto;
+  }
+  .rule{
+    width:70px;height:2px;background:var(--coral);
+    margin:34px auto;border:none;
+  }
+  .cover .tagline{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:13px;color:var(--gray);
+  }
+
+  /* ---- Progress bar ---- */
+  .progress-bar-wrap{
+    position:sticky;top:0;z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    padding:12px 24px;
+  }
+  .progress-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:14px;}
+  .progress-track{
+    flex:1;height:8px;background:var(--teal-light);border-radius:6px;overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;background:var(--coral);width:0%;
+    transition:width .3s ease;
+  }
+  .progress-label{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:12px;color:var(--teal);font-weight:700;white-space:nowrap;
+  }
+
+  /* ---- How to use ---- */
+  .howto{padding:44px 0 10px;}
+  h2.h1{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    color:var(--teal);font-size:22px;font-weight:700;margin:0 0 14px;
+  }
+  .howto p{font-size:15px;}
+  .steps{list-style:none;margin:18px 0;padding:0;}
+  .steps li{
+    display:flex;gap:14px;padding:10px 0;font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;
+  }
+  .steps .num{color:var(--coral);font-weight:700;min-width:18px;}
+
+  /* ---- Section ---- */
+  .section{padding:56px 0 10px;border-top:1px solid var(--line);}
+  .section:first-of-type{border-top:none;}
+  .sec-head{display:flex;gap:20px;align-items:flex-start;margin-bottom:22px;}
+  .sec-num{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:44px;font-weight:700;color:var(--coral-light);line-height:1;
+  }
+  .sec-title{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:21px;font-weight:700;color:var(--teal);margin:0 0 4px;
+  }
+  .sec-sub{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-style:italic;font-size:13.5px;color:var(--gray);margin:0;
+  }
+
+  .why{
+    background:var(--teal-light);border-radius:8px;
+    padding:14px 18px;margin:0 0 20px;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+  }
+  .why .why-label{
+    font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:5px;
+  }
+  .why p{margin:0;font-size:13.5px;line-height:1.55;color:var(--dark);}
+  .checklist a, .why a, p a{color:var(--coral);font-weight:700;text-decoration:none;border-bottom:1.4px solid var(--coral);}
+  .checklist a:hover, .why a:hover, p a:hover{opacity:.75;}
+
+  /* ---- Checklist ---- */
+  .checklist{list-style:none;margin:0;padding:0;}
+  .checklist li{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:12px 0;border-bottom:1px solid var(--line);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist input[type=checkbox]{
+    appearance:none;-webkit-appearance:none;
+    width:19px;height:19px;min-width:19px;margin-top:2px;
+    border:1.6px solid var(--teal);border-radius:4px;
+    cursor:pointer;position:relative;background:#fff;
+  }
+  .checklist input[type=checkbox]:checked{
+    background:var(--teal);
+  }
+  .checklist input[type=checkbox]:checked::after{
+    content:"";position:absolute;left:5px;top:1px;
+    width:5px;height:10px;border:solid white;
+    border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  .checklist label{font-size:14.5px;cursor:pointer;}
+  .checklist label.done{color:var(--gray);text-decoration:line-through;}
+
+  .callout{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    background:var(--teal-light);border-left:3px solid var(--teal);
+    padding:12px 16px;margin-top:16px;font-size:13.5px;color:var(--teal);font-weight:700;
+    border-radius:0 6px 6px 0;
+  }
+  .note{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12.5px;color:var(--gray);margin-top:12px;}
+
+  /* ---- Script box ---- */
+  .script-h{
+    font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;color:var(--coral);
+    font-size:13.5px;margin:26px 0 8px;text-transform:uppercase;letter-spacing:.05em;
+  }
+  .script-box{
+    background:var(--coral-light);border:1px solid var(--coral);border-radius:8px;
+    padding:16px 18px;font-style:italic;font-size:14.5px;
+  }
+
+  /* ---- Tracker tables ---- */
+  .track-h{
+    font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;color:var(--teal);
+    font-size:14px;margin:28px 0 10px;
+  }
+  table.tracker{width:100%;border-collapse:collapse;font-family:'Helvetica Neue',Arial,sans-serif;}
+  table.tracker th{
+    background:var(--teal);color:#fff;font-size:11.5px;text-align:center;
+    padding:10px 6px;font-weight:700;
+  }
+  table.tracker td{
+    border:1px solid var(--line);padding:0;
+  }
+  table.tracker tr:nth-child(even) td{background:#fff;}
+  table.tracker tr:nth-child(odd) td{background:var(--cream);}
+  table.tracker input{
+    width:100%;border:none;background:transparent;
+    font-family:'Helvetica Neue',Arial,sans-serif;font-size:12.5px;
+    padding:8px 8px;color:var(--dark);
+  }
+  table.tracker input:focus{outline:2px solid var(--coral);outline-offset:-2px;}
+
+  /* ---- Closing ---- */
+  .closing{
+    padding:50px 0 20px;text-align:center;
+  }
+  .closing p{
+    font-style:italic;color:var(--teal);font-size:16px;max-width:480px;margin:0 auto;
+  }
+
+  /* ---- Download bar ---- */
+  .download-bar{
+    position:fixed;bottom:0;left:0;right:0;
+    background:var(--teal);padding:12px 20px;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;align-items:center;
+    box-shadow:0 -4px 16px rgba(0,0,0,.15);z-index:100;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+  }
+  .download-bar .status{
+    width:100%;text-align:center;color:var(--teal-light);font-size:11.5px;
+    order:3;margin-top:2px;
+  }
+  .download-btn{
+    background:var(--coral);color:#fff;border:none;
+    padding:11px 20px;border-radius:24px;font-size:13.5px;font-weight:700;
+    cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;
+    transition:transform .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .download-btn:hover{background:#d6503d;transform:translateY(-1px);}
+  .download-btn:active{transform:translateY(0);}
+  .ghost-btn{
+    background:transparent;color:#fff;border:1.4px solid rgba(255,255,255,.55);
+    padding:10px 18px;border-radius:24px;font-size:13.5px;font-weight:700;
+    cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;
+    transition:background .15s ease;white-space:nowrap;
+  }
+  .ghost-btn:hover{background:rgba(255,255,255,.12);}
+  .autosave-note{
+    width:100%;order:4;text-align:center;color:rgba(255,255,255,.6);font-size:10.5px;
+  }
+
+  /* ---- Reference tables (category cheat sheet, one-page cheat sheet) ---- */
+  .reftable{width:100%;border-collapse:collapse;font-family:'Helvetica Neue',Arial,sans-serif;margin:14px 0 6px;}
+  .reftable th{background:var(--teal);color:#fff;font-size:10.5px;text-align:left;padding:9px 10px;font-weight:700;}
+  .reftable td{border:1px solid var(--line);padding:9px 10px;font-size:12.5px;vertical-align:top;}
+  .reftable tr:nth-child(even) td{background:#fff;}
+  .reftable tr:nth-child(odd) td{background:var(--cream);}
+  .reftable td.when{font-weight:700;color:var(--coral);font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;white-space:nowrap;}
+
+  /* ---- Glossary ---- */
+  .glossary-item{margin-bottom:14px;font-size:13.5px;line-height:1.55;}
+  .glossary-term{font-weight:700;color:var(--teal);font-family:'Helvetica Neue',Arial,sans-serif;}
+
+  /* ---- Jump nav ---- */
+  .jumpnav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px;font-family:'Helvetica Neue',Arial,sans-serif;}
+  .jumpnav a{font-size:11px;color:var(--teal);background:var(--teal-light);padding:6px 12px;border-radius:14px;text-decoration:none;font-weight:700;white-space:nowrap;}
+  .jumpnav a:hover{background:var(--coral-light);color:var(--coral);}
+
+  /* ---- Sub-headings within a section ---- */
+  .subhead{
+    font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;color:var(--teal);
+    font-size:16px;margin:30px 0 8px;
+  }
+
+  /* ---- QR code placeholder ---- */
+  .qr-row{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+  .qr-placeholder{
+    width:96px;height:96px;min-width:96px;flex-shrink:0;
+    border:2px dashed var(--coral);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    background:#fff;position:relative;
+  }
+  .qr-placeholder::before{
+    content:"";position:absolute;inset:8px;
+    background-image:
+      linear-gradient(90deg, var(--coral-light) 2px, transparent 2px),
+      linear-gradient(0deg, var(--coral-light) 2px, transparent 2px);
+    background-size: 12px 12px;
+    opacity:.6;border-radius:4px;
+  }
+  .qr-placeholder span{
+    position:relative;font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:9.5px;font-weight:700;color:var(--coral);text-align:center;
+    line-height:1.3;background:#fff;padding:2px 4px;border-radius:3px;
+  }
+  .qr-text{flex:1;min-width:200px;}
+
+  @media (max-width:600px){
+    .cover h1{font-size:32px;}
+    .sec-num{font-size:34px;}
+    table.tracker{font-size:11px;}
+    .wrap{padding:0 16px 100px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar-wrap">
+  <div class="progress-inner">
+    <span class="progress-label" id="progress-label">0%</span>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="kicker">A LOCAL VISIBILITY KIT FOR SHOP OWNERS</div>
+    <h1>The 30-Minute<br>Google Maps Fix</h1>
+    <p class="sub">A checklist &amp; tracker for boutique and small shop owners who want to show up on Google Maps &mdash; without the SEO jargon.</p>
+    <hr class="rule">
+    <p class="tagline">Check things off as you go. When you're ready, download your filled-in copy at the bottom of the page.</p>
+    <div class="jumpnav">
+      <a href="#score">Score My Listing</a>
+      <a href="#sec1">01 Profile Audit</a>
+      <a href="#sec2">02 Trust Signals</a>
+      <a href="#sec3">03 Review Snowball</a>
+      <a href="#sec4">04 Weekly Tracker</a>
+      <a href="#sec5">05 Ranking Log</a>
+      <a href="#bonus">Bonus & Glossary</a>
+      <a href="#cheatsheet">Cheat Sheet</a>
+    </div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="howto" id="howto">
+    <h2 class="h1">How To Use This Kit</h2>
+    <p>You don't need a marketing degree to show up on Google Maps &mdash; you need a short list of the right things, done in the right order. That's what this kit is.</p>
+    <p>Each section takes 15&ndash;30 minutes. Do Section 1 today. It's the highest-impact, lowest-effort fix in this entire kit, and most shop owners have never done it properly.</p>
+    <ul class="steps">
+      <li><span class="num">1.</span><span><b>Profile Audit</b> &mdash; Fix your Google Business Profile basics. Do this first, today.</span></li>
+      <li><span class="num">2.</span><span><b>Trust Signals</b> &mdash; A reference list of easy, legitimate places to get your shop listed elsewhere.</span></li>
+      <li><span class="num">3.</span><span><b>Review Snowball</b> &mdash; A simple system (with a script) to get more Google reviews, consistently.</span></li>
+      <li><span class="num">4.</span><span><b>Weekly Tracker</b> &mdash; A 20-minute weekly habit so visibility doesn't slide backward.</span></li>
+      <li><span class="num">5.</span><span><b>Ranking Log</b> &mdash; A monthly log to prove &mdash; in your own numbers &mdash; that it's working.</span></li>
+    </ul>
+  </div>
+
+  <!-- SCORE YOUR LISTING -->
+  <div class="howto" id="score" style="border-top:1px solid var(--line);margin-top:20px;">
+    <h2 class="h1">Score Your Listing</h2>
+    <p>Before you dive in, find out where you actually stand. Answer honestly, not aspirationally &mdash; your score tells you how urgently you need Section 1.</p>
+    <ul class="checklist" data-group="score">
+      <li><input type="checkbox"><label>I've logged into my Google Business Profile in the last 3 months</label></li>
+      <li><input type="checkbox"><label>My hours are 100% accurate right now, including any holiday hours</label></li>
+      <li><input type="checkbox"><label>I have 10 or more recent photos uploaded</label></li>
+      <li><input type="checkbox"><label>I have at least 15 Google reviews</label></li>
+      <li><input type="checkbox"><label>I've responded to a review (good or bad) in the last 30 days</label></li>
+      <li><input type="checkbox"><label>I know exactly what my primary Google category is set to</label></li>
+      <li><input type="checkbox"><label>I'm listed on at least one site besides Google (Bing, Apple, Nextdoor, Chamber, etc.)</label></li>
+      <li><input type="checkbox"><label>I've posted an update or photo to my profile in the last 2 weeks</label></li>
+      <li><input type="checkbox"><label>I could tell you, right now, where I rank for my top search term</label></li>
+      <li><input type="checkbox"><label>A stranger googling my shop type + my city would find me on the first screen</label></li>
+    </ul>
+    <div class="script-box" style="font-style:normal;">
+      <b>Count your checks:</b><br>
+      <b>0&ndash;3:</b> Start today &mdash; you're invisible to most searches right now. Do Section 1 this afternoon.<br>
+      <b>4&ndash;7:</b> You have a foundation, but you're leaking customers to shops that finished the checklist. Sections 1&ndash;3 are your priority.<br>
+      <b>8&ndash;10:</b> You're ahead of most local shops. Focus on Sections 4&ndash;5 to protect that lead.
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="sec1">
+    <div class="sec-head">
+      <div class="sec-num">01</div>
+      <div>
+        <p class="sec-title">The 15-Minute Profile Audit</p>
+        <p class="sec-sub">Fix the basics most shops get wrong &mdash; do this section today.</p>
+      </div>
+    </div>
+    <div class="why">
+      <div class="why-label">Why this matters</div>
+      <p>Google decides who shows up on the map using three things: relevance, distance, and prominence. An incomplete or inaccurate profile scores lower on relevance and prominence &mdash; no matter how good your shop actually is &mdash; and a customer who hits wrong hours simply goes to the next name on the map instead of coming back later.</p>
+      <p style="margin-top:8px;">Open your listing here: <a href="https://business.google.com" target="_blank" rel="noopener">business.google.com</a></p>
+    </div>
+    <ul class="checklist" data-group="audit">
+      <li><input type="checkbox"><label>Business name matches your storefront sign exactly (no extra keywords stuffed in)</label></li>
+      <li><input type="checkbox"><label>Correct primary category is selected, plus 1&ndash;2 relevant secondary categories</label></li>
+      <li><input type="checkbox"><label>Hours are accurate, including upcoming holiday hours</label></li>
+      <li><input type="checkbox"><label>Map pin location is accurate to your actual entrance</label></li>
+      <li><input type="checkbox"><label>Phone number and website link are current and clickable</label></li>
+      <li><input type="checkbox"><label>At least 10 recent photos uploaded: storefront, interior, products, team</label></li>
+      <li><input type="checkbox"><label>Booking or appointment link added, if you take appointments</label></li>
+      <li><input type="checkbox"><label>Business description (750-character field) is written in natural language, not stuffed with keywords</label></li>
+      <li><input type="checkbox"><label>Attributes filled in where true (women-owned, wheelchair accessible, LGBTQ+ friendly, etc.)</label></li>
+      <li><input type="checkbox"><label>Messaging turned on if you're willing to answer questions from the listing itself</label></li>
+    </ul>
+    <div class="callout">Quick win: Items 1, 3, and 6 alone fix the majority of "why can't customers find us" complaints. If you only have 15 minutes today, start there.</div>
+
+    <div class="subhead">Category Cheat Sheet</div>
+    <p>Picking the right primary category matters more than almost anything else in your profile &mdash; it's the single biggest factor in which searches you show up for. Find the closest match below.</p>
+    <table class="reftable">
+      <thead><tr><th>If your business is a&hellip;</th><th>Try this primary category</th><th>Good secondary categories</th></tr></thead>
+      <tbody>
+        <tr><td>Lawn care or landscaping company</td><td>Lawn care service</td><td>Landscaper, Gardener</td></tr>
+        <tr><td>Handyman or general home repair</td><td>Handyman</td><td>Contractor, Repair service</td></tr>
+        <tr><td>Auto repair shop or mechanic</td><td>Auto repair shop</td><td>Mechanic, Car repair and maintenance service</td></tr>
+        <tr><td>House cleaning business</td><td>House cleaning service</td><td>Maid service, Cleaning service</td></tr>
+        <tr><td>Restaurant, caf&eacute;, or family diner</td><td>Restaurant</td><td>[Your cuisine] restaurant, Family restaurant</td></tr>
+        <tr><td>Plumbing repairs</td><td>Plumber</td><td>Contractor</td></tr>
+        <tr><td>Electrical work</td><td>Electrician</td><td>Contractor</td></tr>
+        <tr><td>Clothing, accessories, boutique</td><td>Clothing store</td><td>Boutique, Women's clothing store</td></tr>
+        <tr><td>Handmade goods, art, gifts</td><td>Gift shop</td><td>Art gallery, Craft store</td></tr>
+        <tr><td>Beauty, skincare, salon services</td><td>Beauty salon</td><td>Cosmetics store, Spa</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Don't see your business type? Search your closest competitor's Google listing and note their primary category &mdash; it's usually visible right under their name.</p>
+
+    <div class="subhead">The 10-Photo Shot List</div>
+    <p>Section 1 said 10 recent photos &mdash; here's exactly what those 10 shots should be, all doable with your phone, no photographer needed.</p>
+    <ul class="checklist" data-group="shotlist">
+      <li><input type="checkbox"><label>Storefront from across the street (so it's recognizable from the sidewalk)</label></li>
+      <li><input type="checkbox"><label>Storefront close-up, sign clearly visible</label></li>
+      <li><input type="checkbox"><label>Interior, wide shot from the entrance</label></li>
+      <li><input type="checkbox"><label>A close-up of your best-selling product or display</label></li>
+      <li><input type="checkbox"><label>You or a team member helping a customer (with permission)</label></li>
+      <li><input type="checkbox"><label>A styled flat-lay or close-up of 2&ndash;3 products together</label></li>
+      <li><input type="checkbox"><label>The checkout counter or register area</label></li>
+      <li><input type="checkbox"><label>Any unique architectural or design detail (exposed brick, mural, window display)</label></li>
+      <li><input type="checkbox"><label>A seasonal or holiday display, updated each season</label></li>
+      <li><input type="checkbox"><label>A happy customer with their purchase (with permission)</label></li>
+    </ul>
+    <p class="note">No storefront? Swap in your work van/truck, a job site, or you mid-job instead of the storefront shots &mdash; the goal is just proof you're real and active.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="sec2">
+    <div class="sec-head">
+      <div class="sec-num">02</div>
+      <div>
+        <p class="sec-title">The Local Trust Signals List</p>
+        <p class="sec-sub">Legitimate, low-effort places to get your shop listed elsewhere.</p>
+      </div>
+    </div>
+    <div class="why">
+      <div class="why-label">Why this matters</div>
+      <p>Google cross-checks your business info against how it's listed elsewhere on the web &mdash; this is called a "citation." The more consistently your name, address, and phone number show up across legitimate sources, the more Google trusts that you're a real, established business, which directly affects how high you rank.</p>
+    </div>
+    <p>Work through this list once, then revisit twice a year.</p>
+    <ul class="checklist" data-group="trust">
+      <li><input type="checkbox"><label>Local Chamber of Commerce membership and directory listing &mdash; <a href="https://www.uschamber.com/co" target="_blank" rel="noopener">find your local chamber</a></label></li>
+      <li><input type="checkbox"><label>Downtown / Main Street merchants' association directory (common in small towns)</label></li>
+      <li><input type="checkbox"><label>Local newspaper or community blog "shop local" features (often free to submit)</label></li>
+      <li><input type="checkbox"><label>Nextdoor Business Page for your neighborhood &mdash; <a href="https://business.nextdoor.com/local" target="_blank" rel="noopener">business.nextdoor.com</a></label></li>
+      <li><input type="checkbox"><label>Apple Business Connect listing for Apple Maps (separate from Google, frequently skipped) &mdash; <a href="https://businessconnect.apple.com" target="_blank" rel="noopener">businessconnect.apple.com</a></label></li>
+      <li><input type="checkbox"><label>Bing Places for Business (5-minute setup, still counts as a citation) &mdash; <a href="https://www.bingplaces.com" target="_blank" rel="noopener">bingplaces.com</a></label></li>
+      <li><input type="checkbox"><label>Local tourism board listing, if you're in a tourist or visitor-heavy area</label></li>
+      <li><input type="checkbox"><label>Industry-specific directories (wedding, home decor, pet, etc. depending on your product)</label></li>
+      <li><input type="checkbox"><label>Cross-links with 2&ndash;3 neighboring businesses (ask them to list you, and list them back)</label></li>
+    </ul>
+    <p class="note">Skip anything that asks you to pay for a "guaranteed backlink" or "ranking package." Those don't help and can violate Google's guidelines.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="sec3">
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <div>
+        <p class="sec-title">The Review Snowball System</p>
+        <p class="sec-sub">A simple, repeatable way to earn more Google reviews.</p>
+      </div>
+    </div>
+    <div class="why">
+      <div class="why-label">Why this matters</div>
+      <p>Review count and recency are among the most heavily weighted local ranking factors &mdash; and separately, reviews are usually the deciding factor when a customer is choosing between your shop and the one next door. A steady trickle of recent reviews beats a big batch from two years ago.</p>
+      <p style="margin-top:8px;">Get your direct review link here: <a href="https://support.google.com/business/answer/7035772" target="_blank" rel="noopener">Google's short link tool</a></p>
+    </div>
+    <ul class="checklist" data-group="review">
+      <li><input type="checkbox"><label>Identify your 3&ndash;5 best repeat or happiest customers this week</label></li>
+      <li><input type="checkbox"><label>Ask in person at checkout, right after a compliment or a big purchase</label></li>
+      <li><input type="checkbox"><label>Send the text or email script below within 24 hours &mdash; while they're still happy</label></li>
+      <li><input type="checkbox"><label>Respond to every review within 48 hours, good or bad, in your own voice</label></li>
+      <li><input type="checkbox"><label>Never offer a discount or freebie in exchange for a review (against Google's policy, and reversible)</label></li>
+    </ul>
+
+    <div class="script-h">Copy-Paste Script</div>
+    <div class="script-box">Hi [Name]! So glad you enjoyed your visit today. If you have 30 seconds, would you mind leaving us a quick Google review? It really helps a small business like ours. [Your Google review link]. Thank you!</div>
+
+    <div class="track-h">Ask Log</div>
+    <table class="tracker" id="table-ask">
+      <thead><tr><th>Customer Name</th><th>Date Asked</th><th>Method</th><th>Review Left?</th><th>Followed Up</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="subhead">More Ways To Ask</div>
+    <p>Different customers respond to different channels. Rotate these depending on how you reach them.</p>
+
+    <div class="script-h">Text message</div>
+    <div class="script-box">Hey [Name]! Thanks so much for stopping by today &mdash; hope you enjoyed your visit. Quick favor if you have 30 seconds: [Google review link]. Means a lot to a small business like ours!</div>
+
+    <div class="script-h">Email (after online order)</div>
+    <div class="script-box">Hi [Name], thanks so much for your recent order &mdash; we hope you're loving it! If you have a moment, a quick Google review helps other folks find us: [link]. Thank you for supporting a small business.</div>
+
+    <div class="script-h">Receipt / counter card</div>
+    <div class="qr-row">
+      <div class="qr-placeholder"><span>YOUR<br>QR<br>CODE</span></div>
+      <div class="qr-text script-box" style="margin:0;">Loved your visit? Scan to leave us a quick Google review &mdash; it takes 30 seconds and means the world to us.</div>
+    </div>
+
+    <div class="subhead" style="font-size:14px;margin-top:20px;">How to get a QR code for your review link</div>
+    <p style="font-size:13.5px;">Paste your Google review link into whichever of these your business already uses &mdash; no design skills needed:</p>
+    <div class="glossary-item"><span class="glossary-term">Chrome</span> (desktop or mobile) &mdash; open the review link, then right-click the page (or tap the Share icon in the address bar) and choose <i>Create QR Code</i>, then Download.</div>
+    <div class="glossary-item"><span class="glossary-term">Microsoft Edge</span> &mdash; right-click the page and choose <i>Create QR code for this page</i>, then Download.</div>
+    <div class="glossary-item"><span class="glossary-term">Safari or Firefox</span> &mdash; these don't generate QR codes natively. Use a free tool like <a href="https://www.qrcode-monkey.com" target="_blank" rel="noopener">qrcode-monkey.com</a>, paste your review link in, and download the image &mdash; no signup required.</div>
+    <p class="note">Print the code on receipts, a small counter card, or a window cling &mdash; anywhere a customer has 10 idle seconds.</p>
+
+    <div class="subhead">Handling a Negative Review</div>
+    <p>One bad review, handled well and in public, often builds more trust than five quiet good ones &mdash; future customers read your response, not just the complaint.</p>
+
+    <div class="script-h">A fair complaint</div>
+    <div class="script-box">Thank you for the honest feedback, [Name] &mdash; you're right, and we're sorry we missed the mark. We've [specific fix]. We'd love the chance to make it right &mdash; please reach out at [contact].</div>
+
+    <div class="script-h">Feels unfair or exaggerated</div>
+    <div class="script-box">We're sorry to hear this, [Name]. We take feedback seriously and would like to understand what happened &mdash; please reach out at [contact] so we can make this right.</div>
+
+    <div class="script-h">A mistake you clearly made</div>
+    <div class="script-box">You're completely right, and we're genuinely sorry, [Name]. This isn't the experience we want anyone to have. We've already [specific fix] and would love a chance to earn back your trust.</div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="sec4">
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <div>
+        <p class="sec-title">The Weekly Maintenance Tracker</p>
+        <p class="sec-sub">20 minutes a week keeps your ranking from sliding backward.</p>
+      </div>
+    </div>
+    <div class="why">
+      <div class="why-label">Why this matters</div>
+      <p>Google reads activity as a signal that a business is real and open. A profile that's fully filled out but never touched again can quietly lose ground to a less complete listing that posts and gets fresh reviews weekly. This is what keeps you from sliding backward after Section 1.</p>
+    </div>
+    <p>This tracker turns visibility into a small, repeatable weekly habit &mdash; not another one-time project.</p>
+    <table class="tracker" id="table-weekly">
+      <thead><tr><th>Week Of</th><th>Photo Posted?</th><th>Review Responded?</th><th>Post/Update Made?</th><th>Notes</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="note">Tip: pair this with a recurring Sunday-night or Monday-morning reminder on your phone.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="sec5">
+    <div class="sec-head">
+      <div class="sec-num">05</div>
+      <div>
+        <p class="sec-title">The "Am I Improving?" Ranking Log</p>
+        <p class="sec-sub">A monthly log to see tangible proof this is working.</p>
+      </div>
+    </div>
+    <div class="why">
+      <div class="why-label">Why this matters</div>
+      <p>Without a log, you have no way to know if any of this is actually working &mdash; or to catch a ranking drop early enough to fix it. This turns "I think it's helping" into an actual number you can point to.</p>
+    </div>
+    <p>Pick 3 search terms a customer might actually type (example: "boutique near me," "[your city] gift shop"). Search them once a month in an incognito/private browser window and log where you land.</p>
+    <table class="tracker" id="table-rank">
+      <thead><tr><th>Month</th><th>Term 1 + Rank</th><th>Term 2 + Rank</th><th>Term 3 + Rank</th><th>Notes / Changes Made</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- BONUS: MISTAKES -->
+  <div class="section" id="bonus">
+    <div class="sec-head">
+      <div>
+        <p class="sec-title">Bonus: 9 Mistakes That Quietly Tank Your Ranking</p>
+        <p class="sec-sub">None of these get your listing suspended overnight &mdash; they just slowly bury you.</p>
+      </div>
+    </div>
+    <ul class="checklist" data-group="mistakes">
+      <li><input type="checkbox"><label>Stuffing keywords into your business name ("Jane's Boutique &ndash; Best Dresses Tampa FL") &mdash; against Google's guidelines and can get your listing suspended</label></li>
+      <li><input type="checkbox"><label>Using a P.O. box or virtual address instead of your real storefront address</label></li>
+      <li><input type="checkbox"><label>Letting old hours sit wrong over a holiday weekend, your busiest traffic window</label></li>
+      <li><input type="checkbox"><label>Copy-pasting the same review response on every review</label></li>
+      <li><input type="checkbox"><label>Buying reviews or offering discounts for them &mdash; reversible and against policy</label></li>
+      <li><input type="checkbox"><label>Leaving your business description as the auto-generated default text</label></li>
+      <li><input type="checkbox"><label>Uploading blurry, dark, or outdated photos instead of retaking them</label></li>
+      <li><input type="checkbox"><label>Ignoring a negative review instead of responding within a few days</label></li>
+      <li><input type="checkbox"><label>Setting up your profile once and never opening it again</label></li>
+    </ul>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="howto" id="glossary" style="border-top:1px solid var(--line);">
+    <h2 class="h1">Quick Glossary</h2>
+    <p>A few terms that show up in local SEO advice, translated into plain English.</p>
+    <div class="glossary-item"><span class="glossary-term">Google Business Profile (GBP)</span> &mdash; Your free business listing that shows up on Google Maps and in search results. This used to be called "Google My Business."</div>
+    <div class="glossary-item"><span class="glossary-term">NAP</span> &mdash; Name, Address, Phone number &mdash; shorthand for the three details that need to match exactly everywhere your business is listed.</div>
+    <div class="glossary-item"><span class="glossary-term">Citation</span> &mdash; Any mention of your business's NAP on another website or directory (Yelp, Bing, Chamber of Commerce, etc.). Consistent citations build trust with Google.</div>
+    <div class="glossary-item"><span class="glossary-term">Local pack / map pack</span> &mdash; The group of 3 business listings with a map that shows up at the top of a local Google search &mdash; the most valuable real estate in local search.</div>
+    <div class="glossary-item"><span class="glossary-term">Prominence</span> &mdash; One of Google's three local ranking factors &mdash; roughly, how well-known and well-reviewed your business is, both online and off.</div>
+    <div class="glossary-item"><span class="glossary-term">Primary category</span> &mdash; The single main category Google uses to decide which searches your listing shows up for. The most important setting in your whole profile.</div>
+  </div>
+
+  <!-- ONE-PAGE CHEAT SHEET -->
+  <div class="howto" id="cheatsheet" style="border-top:1px solid var(--line);">
+    <h2 class="h1">One-Page Cheat Sheet</h2>
+    <p class="note" style="margin-top:-6px;">Screenshot or print this section and keep it at the counter.</p>
+    <table class="reftable">
+      <tbody>
+        <tr><td class="when">This week</td><td>Fix hours, photos, and category (Section 1) if you haven't yet</td></tr>
+        <tr><td class="when">Every week</td><td>Post 1 photo &middot; respond to reviews &middot; check for anything stale</td></tr>
+        <tr><td class="when">Every time a customer smiles</td><td>Ask for a review &mdash; text, email, or the counter QR code</td></tr>
+        <tr><td class="when">Every month</td><td>Log your ranking for your top 3 search terms</td></tr>
+        <tr><td class="when">Twice a year</td><td>Re-check Sections 1&ndash;3 top to bottom</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="closing">
+    <p>You're now doing more for your local visibility than most shops ever will. Repeat Sections 4 and 5 monthly, revisit Sections 1&ndash;3 twice a year, and the map takes care of the rest.</p>
+  </div>
+
+</div>
+
+<div class="download-bar">
+  <button class="download-btn" id="downloadBtn">Download PDF Copy</button>
+  <span class="status" id="downloadStatus"></span>
+  <span class="autosave-note" id="autosaveNote">Autosaving on this phone as you go</span>
+</div>
+
+<script>
+  // ---- Build tracker table rows ----
+  function buildRows(tableId, cols, rowCount, placeholders){
+    const tbody = document.querySelector('#' + tableId + ' tbody');
+    for(let r=0;r<rowCount;r++){
+      const tr = document.createElement('tr');
+      for(let c=0;c<cols;c++){
+        const td = document.createElement('td');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = (placeholders && placeholders[c]) ? placeholders[c] : '';
+        td.appendChild(input);
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+  }
+  buildRows('table-ask', 5, 7);
+  buildRows('table-weekly', 5, 8);
+  buildRows('table-rank', 5, 6);
+
+  // ---- Progress tracking ----
+  const allChecks = () => Array.from(document.querySelectorAll('.checklist input[type=checkbox]'));
+  function updateProgress(){
+    const boxes = allChecks();
+    const done = boxes.filter(b=>b.checked).length;
+    document.getElementById('progress-label').textContent = (boxes.length ? Math.round(done/boxes.length*100) : 0) + '%';
+    document.getElementById('progress-fill').style.width = (boxes.length ? (done/boxes.length*100) : 0) + '%';
+  }
+
+  // ---- Save / restore state (checkboxes + tracker fields) ----
+  const STORAGE_KEY = 'gmf_progress_v1';
+  const TRACKER_IDS = ['table-ask','table-weekly','table-rank'];
+
+  function getState(){
+    return {
+      checks: allChecks().map(b => b.checked),
+      tracker: TRACKER_IDS.reduce((acc, id) => {
+        acc[id] = Array.from(document.querySelectorAll('#' + id + ' input')).map(i => i.value);
+        return acc;
+      }, {})
+    };
+  }
+
+  function applyState(state){
+    if(!state) return;
+    const boxes = allChecks();
+    (state.checks || []).forEach((checked, i) => {
+      if(boxes[i]){
+        boxes[i].checked = !!checked;
+        boxes[i].nextElementSibling.classList.toggle('done', !!checked);
+      }
+    });
+    TRACKER_IDS.forEach(id => {
+      const inputs = document.querySelectorAll('#' + id + ' input');
+      (state.tracker && state.tracker[id] || []).forEach((val, i) => {
+        if(inputs[i]) inputs[i].value = val || '';
+      });
+    });
+    updateProgress();
+  }
+
+  let autosaveTimer = null;
+  function autosave(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(getState()));
+      const note = document.getElementById('autosaveNote');
+      note.textContent = 'Saved on this device at ' + new Date().toLocaleTimeString();
+      clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(() => { note.textContent = 'Autosaving on this device as you go'; }, 3000);
+    }catch(e){ /* storage unavailable — silently skip, Save Progress file still works */ }
+  }
+
+  // Restore any previously saved progress on this device
+  try{
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if(saved) applyState(JSON.parse(saved));
+  }catch(e){ /* ignore */ }
+
+  allChecks().forEach(box=>{
+    box.addEventListener('change', ()=>{
+      box.nextElementSibling.classList.toggle('done', box.checked);
+      updateProgress();
+      autosave();
+    });
+  });
+  document.querySelectorAll('table.tracker input').forEach(inp=>{
+    inp.addEventListener('input', autosave);
+  });
+  updateProgress();
+
+  // ---- Download filled results as PDF ----
+  document.getElementById('downloadBtn').addEventListener('click', function(){
+    const statusEl = document.getElementById('downloadStatus');
+
+    if(typeof window.jspdf === 'undefined'){
+      statusEl.textContent = "Couldn't connect — check your internet and try again.";
+      return;
+    }
+
+    statusEl.textContent = 'Building your PDF…';
+
+    try{
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({unit:'pt', format:'letter'});
+      const pageW = doc.internal.pageSize.getWidth();
+      const margin = 54;
+      let y = 60;
+      const teal = [27,75,74];
+      const coral = [232,96,76];
+      const gray = [110,110,110];
+      const dark = [43,43,43];
+
+      function ensureSpace(h){
+        if(y + h > 730){ doc.addPage(); y = 60; }
+      }
+      function heading(text, size){
+        ensureSpace(30);
+        doc.setFont('helvetica','bold');
+        doc.setFontSize(size);
+        doc.setTextColor(...teal);
+        doc.text(text, margin, y);
+        y += size * 0.9;
+      }
+      function sub(text){
+        ensureSpace(20);
+        doc.setFont('helvetica','italic');
+        doc.setFontSize(10.5);
+        doc.setTextColor(...gray);
+        doc.text(text, margin, y);
+        y += 20;
+      }
+      function bodyText(text){
+        doc.setFont('helvetica','normal');
+        doc.setFontSize(10.5);
+        doc.setTextColor(...dark);
+        const lines = doc.splitTextToSize(text, pageW - margin*2);
+        lines.forEach(line=>{
+          ensureSpace(16);
+          doc.text(line, margin, y);
+          y += 15;
+        });
+        y += 4;
+      }
+
+      // Title page
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(12);
+      doc.setTextColor(...coral);
+      doc.text('MY RESULTS', margin, y); y += 26;
+      doc.setFontSize(24);
+      doc.setTextColor(...teal);
+      doc.text('The 30-Minute Google Maps Fix', margin, y); y += 20;
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(10);
+      doc.setTextColor(...gray);
+      doc.text('Completed on ' + new Date().toLocaleDateString(), margin, y);
+      y += 40;
+
+      const sections = [
+        {id:'score', title:'Score Your Listing'},
+        {id:'audit', title:'01 \u2014 The 15-Minute Profile Audit'},
+        {id:'shotlist', title:'10-Photo Shot List'},
+        {id:'trust', title:'02 \u2014 The Local Trust Signals List'},
+        {id:'review', title:'03 \u2014 The Review Snowball System'},
+        {id:'mistakes', title:'Bonus: 9 Mistakes That Quietly Tank Your Ranking'},
+      ];
+
+      sections.forEach(sec=>{
+        heading(sec.title, 14);
+        y += 4;
+        const items = document.querySelectorAll('.checklist[data-group="' + sec.id + '"] li');
+        items.forEach(li=>{
+          const box = li.querySelector('input[type=checkbox]');
+          const label = li.querySelector('label').textContent;
+          const mark = box.checked ? '[x] ' : '[ ] ';
+          bodyText(mark + label);
+        });
+        y += 10;
+      });
+
+      function tableSection(title, tableId, headers){
+        heading(title, 14);
+        y += 2;
+        const rows = document.querySelectorAll('#' + tableId + ' tbody tr');
+        doc.setFont('helvetica','normal');
+        doc.setFontSize(9);
+        rows.forEach(row=>{
+          const vals = Array.from(row.querySelectorAll('input')).map(i=>i.value.trim());
+          if(vals.every(v=>v==='')) return; // skip empty rows
+          const line = headers.map((h,i)=> h + ': ' + (vals[i] || '\u2014')).join('   |   ');
+          const wrapped = doc.splitTextToSize(line, pageW - margin*2);
+          wrapped.forEach(l=>{ ensureSpace(14); doc.setTextColor(...dark); doc.text(l, margin, y); y+=13; });
+          y += 3;
+        });
+        y += 12;
+      }
+
+      tableSection('Ask Log', 'table-ask', ['Name','Date Asked','Method','Review Left','Followed Up']);
+      tableSection('04 \u2014 Weekly Maintenance Tracker', 'table-weekly', ['Week Of','Photo','Review','Post','Notes']);
+      tableSection('05 \u2014 Ranking Log', 'table-rank', ['Month','Term 1','Term 2','Term 3','Notes']);
+
+      doc.save('my-google-maps-fix-results.pdf');
+      statusEl.textContent = 'Downloaded!';
+      setTimeout(()=>{ statusEl.textContent=''; }, 2500);
+    }catch(err){
+      statusEl.textContent = 'Something went wrong — try again.';
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>
