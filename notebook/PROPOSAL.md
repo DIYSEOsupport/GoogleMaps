@@ -1,6 +1,6 @@
 # The Google Maps Fix — Product Proposal
 
-*Synthesized from: `Biz Plan/business-plan.md`, `Biz Plan/onboarding-email.txt`, `Biz Plan/promo-posts.txt`, `Biz Plan/sales-page.html`, `interactive-playbook-v20-launch-ready.html`, `gbp-category-geo-keyword-blueprint-launch-ready.pdf`, `no-tech-quick-start-guide-launch-ready.pdf`, `outreach-sales-swipe-kit-launch-ready.pdf`, `seo-printable-companion-v8-launch-ready.pdf`.*
+*Synthesized from: `Biz Plan/business-plan.md`, `Biz Plan/onboarding-email.txt`, `Biz Plan/promo-posts.txt`, `Biz Plan/sales-page.html`, `the-complete-google-maps-guide.html`, `gbp-category-geo-keyword-blueprint-launch-ready.pdf`, `no-tech-quick-start-guide-launch-ready.pdf`, `outreach-sales-swipe-kit-launch-ready.pdf`, `seo-printable-companion-v8-launch-ready.pdf`.*
 
 ---
 
@@ -36,7 +36,7 @@
 
 ## 3. Product Architecture & Interactive Features
 
-The flagship deliverable is `interactive-playbook-v20-launch-ready.html` — a single self-contained HTML file, offline-capable, no install required. It supersedes the file named in the root `CLAUDE.md` (`the-30-minute-google-maps-fix.html`) as the current "launch-ready" build; that older file's known broken sync-panel issue has resurfaced here too and is now slated for removal (see §5).
+The flagship deliverable is `the-complete-google-maps-guide.html` — a single self-contained HTML file, offline-capable, no install required. It supersedes the file named in the root `CLAUDE.md` (`the-30-minute-google-maps-fix.html`) as the current "launch-ready" build; that older file's known broken sync-panel issue has resurfaced here too and is now slated for removal (see §5).
 
 ### Table of contents / modules (in order)
 1. **How To Use This Kit** — orientation.
@@ -65,7 +65,7 @@ The flagship deliverable is `interactive-playbook-v20-launch-ready.html` — a s
 ### Companion PDF modules (bundled/upsell reference material)
 | PDF | Pages | Role |
 |---|---|---|
-| `gbp-category-geo-keyword-blueprint` | 4 | Superseded by `gbp-category-geo-keyword-blueprint.html` — same 55-niche table, styled to match v20, adds a live niche search filter |
+| `gbp-category-geo-keyword-blueprint` | 4 | Superseded by `business-category-and-search-terms-guide.html` — same 55-niche table, styled to match v20, adds a live niche search filter |
 | `no-tech-quick-start-guide` | 1 | Superseded by `no-tech-quick-start-guide.html` — same 3-habit content, styled to match v20, adds per-habit weekly checkboxes |
 | `outreach-sales-swipe-kit` | 6 | Superseded by `ready-to-send-scripts.html` (renamed from `revised-swipe-kit.html` — dropped "Swipe Kit" copywriting jargon; owner-facing rewrite, see below) |
 | `seo-printable-companion` (v8) | 8 | Superseded by `local-listings-companion.html` (renamed from `seo-printable-companion.html` — dropped "SEO" per plain-English positioning) — citation matrix, review funnel, and all 3 logs styled to match v20, now checkable/fillable with autosave and an interactive ranking chart |
@@ -80,7 +80,7 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 
 ## 4. Tier Breakdown & Pricing Strategy
 
-**Resolved:** no live/human-delivered calls in this product. `business-plan.md:12` and `sales-page.html:65` both describe Tier 3 as "kit + 15-min live listing audit call" — that live-call offer is cut. Tier 3 is the $37 "Done-For-You" bundle (Premium Copywriting Swipe File + 50-Citation Rolodex) already shipped inside `interactive-playbook-v20-launch-ready.html`, since it needs no human time and matches what's actually live on Gumroad today. Priced low and kept simple per direction — no new build, no added maintenance.
+**Resolved:** no live/human-delivered calls in this product. `business-plan.md:12` and `sales-page.html:65` both describe Tier 3 as "kit + 15-min live listing audit call" — that live-call offer is cut. Tier 3 is the $37 "Done-For-You" bundle (Premium Copywriting Swipe File + 50-Citation Rolodex) already shipped inside `the-complete-google-maps-guide.html`, since it needs no human time and matches what's actually live on Gumroad today. Priced low and kept simple per direction — no new build, no added maintenance.
 
 **Resolved:** `business-plan.md` and `sales-page.html` rewritten — both now show $9/$27/$37 with no live-call language, and `sales-page.html` CTAs point at the actual product files for pre-Gumroad testing.
 
@@ -88,13 +88,13 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 
 | Tier | Price | Deliverable | Positioning |
 |---|---|---|---|
-| 1 | **$12 list / $9 launch promo** | `the-15-minute-profile-audit-checklist.html` — Section 1 only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static build, `localStorage` autosave, no trackers/quiz/PDF export | Impulse buy, top-of-funnel. Promo price creates urgency; raise to $12 list once a real deadline/limited-run mechanic is live |
+| 1 | **$12 list / $9 launch promo** | `15-minute-quick-fix-checklist.html` — Section 1 only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static build, `localStorage` autosave, no trackers/quiz/PDF export | Impulse buy, top-of-funnel. Promo price creates urgency; raise to $12 list once a real deadline/limited-run mechanic is live |
 | 2 | **$27** | Full kit — checklist + tracker + score tool + PDF export (the interactive HTML tool) | Standalone anchor price; matches comparable Etsy digital templates ($15–$35) |
 | 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex + all 4 companion files (GBP Blueprint, No-Tech Quick-Start Guide, Local Listings Companion, Ready-to-Send Scripts) | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
 
 Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to the same Gumroad bundle without restating a price — treat these as pointing at the $37 Tier 3 above, not a separate SKU.
 
-**Resolved:** Tier 1's "checklist only" had no matching artifact — `interactive-playbook-v20-launch-ready.html` is one monolithic file with no stripped-down build. Fixed by hand-authoring `the-15-minute-profile-audit-checklist.html`: Section 1 content only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static HTML with basic checkbox `localStorage` autosave, no score quiz, trackers, charts, QR/sync, or PDF export. Links to the $27 full kit as its own upgrade path.
+**Resolved:** Tier 1's "checklist only" had no matching artifact — `the-complete-google-maps-guide.html` is one monolithic file with no stripped-down build. Fixed by hand-authoring `15-minute-quick-fix-checklist.html`: Section 1 content only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static HTML with basic checkbox `localStorage` autosave, no score quiz, trackers, charts, QR/sync, or PDF export. Links to the $27 full kit as its own upgrade path.
 
 Per direction, this stays a simple, one-time build with no ongoing maintenance commitment — no formal process to keep it in sync with Section 1 of the main tool. If Section 1's content changes later, updating this file is optional, not a standing obligation.
 
@@ -102,7 +102,7 @@ Per direction, this stays a simple, one-time build with no ongoing maintenance c
 
 | | Tier 1 — $9 promo ($12 list) | Tier 2 — $27 | Tier 3 — $37 |
 |---|---|---|---|
-| Interactive HTML checklist tool | `the-15-minute-profile-audit-checklist.html` (Section 1 only — built, resolves prior gap) | Full tool | Full tool |
+| Interactive HTML checklist tool | `15-minute-quick-fix-checklist.html` (Section 1 only — built, resolves prior gap) | Full tool | Full tool |
 | Score Your Listing quiz | — | ✓ | ✓ |
 | Weekly/Monthly trackers | — | ✓ | ✓ |
 | PDF export | — | ✓ | ✓ |
@@ -121,7 +121,7 @@ Per direction, this stays a simple, one-time build with no ongoing maintenance c
 
 ## 5. Delivery Mechanism & Tech Stack
 
-- **Format:** Single self-contained `.html` file. No build step, no backend, no external dependencies at delivery time (per root `CLAUDE.md` and `business-plan.md`). Current flagship file is ~141KB (`interactive-playbook-v20-launch-ready.html`).
+- **Format:** Single self-contained `.html` file. No build step, no backend, no external dependencies at delivery time (per root `CLAUDE.md` and `business-plan.md`). Current flagship file is ~141KB (`the-complete-google-maps-guide.html`).
 - **Access:** Direct download link via the sales platform (Gumroad/LemonSqueezy handle delivery natively) — not an email attachment.
 - **Usage:** Opens in any browser ("double-click it, or drag into a Chrome tab"), works fully offline once open.
 - **State persistence:** Client-side `localStorage` only (`gmf-progress` key), wrapped in a `SafeStorage` helper to fail gracefully in `file://` or private-browsing contexts where `localStorage` may be blocked.
@@ -131,11 +131,11 @@ Per direction, this stays a simple, one-time build with no ongoing maintenance c
 ### Known technical issue — fixed (high priority)
 `business-plan.md` flags an explicit pre-launch blocker: an older version of the product (`the-30-minute-google-maps-fix.html`, per root `CLAUDE.md`) loads a missing `gmf-core.js` and calls `fetch('/api/sync/' + code)` for a device-pairing sync feature with **no backend to support it**. The instruction was to "strip the device-sync/pairing panel... or replace with a note 'sync coming in a future update.'"
 
-The current flagship file (`interactive-playbook-v20-launch-ready.html`) still ships a working-looking "Pair This Device" peer-to-peer sync flow (`pushToServer()`, `pullFromServer()`, `joinWithCode()`) with no confirmed backend — the same dead-backend problem, resurfaced in the new file. There is no product need for cross-device sync in a $9–$37 static checklist tool, and it contradicts the "no backend, self-contained file" delivery promise (§5, root `CLAUDE.md`, `business-plan.md`).
+The current flagship file (`the-complete-google-maps-guide.html`) still ships a working-looking "Pair This Device" peer-to-peer sync flow (`pushToServer()`, `pullFromServer()`, `joinWithCode()`) with no confirmed backend — the same dead-backend problem, resurfaced in the new file. There is no product need for cross-device sync in a $9–$37 static checklist tool, and it contradicts the "no backend, self-contained file" delivery promise (§5, root `CLAUDE.md`, `business-plan.md`).
 
 **Decision: strip the sync/pairing panel entirely** — no stub, no "coming in a future update" note. `localStorage` autosave + the "Save Editable HTML" export already cover the one real use case (moving progress to a new session), and matches `onboarding-email.txt`'s existing offline-only framing ("It works fully offline once open... Your progress auto-saves to this device") with no rewrite needed there.
 
-[TODO: Need Decision] — Confirm with whoever built `interactive-playbook-v20-launch-ready.html` that removing `pushToServer()`/`pullFromServer()`/`joinWithCode()` and the "Pair This Device" UI doesn't break anything else wired to that state object.
+[TODO: Need Decision] — Confirm with whoever built `the-complete-google-maps-guide.html` that removing `pushToServer()`/`pullFromServer()`/`joinWithCode()` and the "Pair This Device" UI doesn't break anything else wired to that state object.
 
 ---
 
@@ -185,7 +185,7 @@ Subject: "Your Google Maps Fix — start here." Instructs the buyer to open the 
 - **Owner:** whoever maintains the product (single owner, no team needed at this scale).
 - **Cadence:** quarterly (4x/year) review of the two things that actually go stale:
   - The 50-site citation matrix (now `local-listings-companion.html`) — check directory URLs still resolve, spot-check DA scores.
-  - The 55-niche GBP category table (now `gbp-category-geo-keyword-blueprint.html`) — check for renamed/merged Google categories.
+  - The 55-niche GBP category table (now `business-category-and-search-terms-guide.html`) — check for renamed/merged Google categories.
 - **Distribution:** re-issue the updated file(s) as a free re-download to existing buyers via the sales platform's update mechanism (Gumroad supports pushing file updates to past purchasers at no extra cost) — not a new purchase, not a subscription.
 - **Trust signal:** stamp a "Content last verified: [date]" line into the product itself (interactive tool footer + each PDF footer) so buyers can see freshness without asking. Doubles as the versioning practice implied but never formalized by the existing "v8"/"v20" filename suffixes.
 - **Ranking-factor claims** (the 42%/35% photo-engagement stat, the BrightLocal citation) get checked at the same quarterly pass — if a source goes dead or outdated, soften the claim rather than leave a now-false stat live.
