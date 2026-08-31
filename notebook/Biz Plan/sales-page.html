@@ -8,12 +8,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;700&display=swap');
   :root{
     --teal:#3E5C76;--teal-light:#E8EEF2;--coral:#C08A2E;--coral-light:#F5EBD9;
-    --cream:#FAFAF9;--dark:#1F2530;--gray:#5B6472;--line:#E4E7EB;
+    --cream:#FAFAF9;--dark:#1F2530;--gray:#5B6472;--line:#E4E7EB;--sage:#5B8266;
     --sans:'Inter','Helvetica Neue',Arial,sans-serif;--serif:'Fraunces',Georgia,serif;
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--cream);color:var(--dark);font-family:var(--sans);line-height:1.6;}
-  .wrap{max-width:720px;margin:0 auto;padding:0 24px 100px;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 100px;}
   .kicker{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--coral);text-align:center;margin-top:60px;}
   h1{font-family:var(--serif);font-size:40px;color:var(--teal);text-align:center;margin:14px 0;line-height:1.15;}
   .sub{font-size:17px;text-align:center;max-width:520px;margin:0 auto 30px;color:var(--gray);}
@@ -24,70 +24,84 @@
   ul{padding-left:20px;} li{margin-bottom:8px;}
   .callout{background:var(--teal-light);border-left:3px solid var(--teal);padding:14px 18px;border-radius:0 8px 8px 0;font-size:14.5px;}
   .faq-q{font-weight:700;color:var(--teal);margin-top:16px;}
-  .price-table{width:100%;border-collapse:collapse;margin:16px 0;}
-  .price-table th,.price-table td{border:1px solid var(--line);padding:10px;text-align:left;font-size:14px;}
-  .price-table th{background:var(--teal);color:#fff;}
-  .headline-alt{font-family:var(--serif);color:var(--gray);font-style:italic;margin:6px 0;}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+  @media (max-width:680px){.plans{grid-template-columns:1fr;}}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 18px;display:flex;flex-direction:column;text-align:center;}
+  .plan.featured{border:2px solid var(--coral);position:relative;}
+  .plan .tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 12px;border-radius:20px;}
+  .plan .name{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);}
+  .plan .price{font-family:var(--serif);font-size:32px;color:var(--teal);font-weight:700;margin:4px 0 10px;}
+  .plan .who{font-size:13px;color:var(--gray);margin-bottom:14px;flex:1;}
+  .plan .pick{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-size:13px;font-weight:700;padding:10px 0;border-radius:20px;}
+  .plan .pick:hover{background:var(--coral);}
+  .plans-note{font-size:12.5px;color:var(--gray);text-align:center;margin-top:14px;font-style:italic;}
+  .urgency-bar{background:var(--dark);color:#fff;text-align:center;font-size:13px;font-weight:700;padding:10px 16px;letter-spacing:.02em;}
+  .urgency-bar b{color:var(--coral-light);}
 </style>
 </head>
 <body>
+<div class="urgency-bar">🔥 Launch week: the $9 Basics checklist goes to $12 soon — grab it at the lower price <b>now</b>.</div>
 <div class="wrap">
   <div class="kicker">A LOCAL VISIBILITY KIT FOR BUSINESS OWNERS</div>
-  <h1>The 30-Minute<br>Google Maps Fix</h1>
-  <p class="sub">A no-jargon checklist and tracker that gets your small business actually showing up when locals search — done in one sitting, no agency required.</p>
-  <a class="cta" href="../interactive-playbook-v20-launch-ready.html">Get It Now — $27</a>
+  <h1>Stop Losing Customers<br>to the Shop Down the Street</h1>
+  <p class="sub">Every day your Google listing sits half-finished, local customers are searching for what you sell — and clicking on your competitor instead. Fix it in one sitting. No agency, no computer skills needed.</p>
 
   <h2>The Problem</h2>
-  <p>Somebody near you searched "[your business] near me" this week. A competitor showed up. You didn't. Not because they're better — because their Google Business Profile is complete and yours is half-filled-out, missing photos, or has stale hours. Every guide online says "do local SEO" and buries you in jargon, retainers, and 40-page PDFs you'll never open.</p>
+  <p>Somebody near you searched "[your business] near me" this week. A competitor showed up on the map. You didn't. Not because they're better — because their free Google listing is filled out completely, and yours is missing photos, has old hours, or is only half done. That's real money walking to a competitor, every single day this stays broken. Most guides bury you in tech talk and 40-page PDFs you'll never open. This isn't that.</p>
 
   <h2>The Fix</h2>
-  <p>This isn't a course. It's a working tool — a single page you check boxes on. Score your listing in 2 minutes, fix the highest-impact stuff today in 15 minutes, then use a weekly and monthly tracker so the fix doesn't quietly undo itself in 3 months.</p>
+  <p>This isn't a course. It's a working checklist — a single page you check boxes on, in plain English. See how your listing scores in 2 minutes, fix the most important stuff today in 15 minutes, then use a simple weekly habit so the fix sticks instead of quietly fading in a few months.</p>
 
   <h2>What's Inside</h2>
   <ul>
-    <li>Score Your Listing — 10-question gut check</li>
-    <li>Section 1: 15-Minute Profile Audit — category cheat sheet + 10-photo shot list</li>
-    <li>Section 2: Local Trust Signals — Chamber, Bing Places, Apple Maps, Nextdoor, and more</li>
-    <li>Section 3: Review Snowball — copy-paste script + tracker</li>
-    <li>Section 4: Weekly Maintenance Tracker</li>
-    <li>Section 5: Monthly Ranking Log</li>
-    <li>Save your filled-in copy, download a results PDF</li>
+    <li>Score Your Listing — a 10-question gut check on where you stand today</li>
+    <li>The 15-Minute Fix — step-by-step checklist plus a photo shot list</li>
+    <li>Get Found Everywhere — a plain list of other places to list your business online (Chamber, Bing, Apple Maps, Nextdoor, and more)</li>
+    <li>Get More Reviews — a copy-paste message you can text or email customers</li>
+    <li>A simple weekly habit tracker, so it takes 20 minutes a week to stay on top of it</li>
+    <li>A monthly check-in log to see if it's working</li>
+    <li>Save your progress and download a summary anytime</li>
   </ul>
 
-  <h2>Proof</h2>
-  <div class="callout">"[Business name] went from page 3 to the top 3 map results in 6 weeks — no ads, just this checklist." <i>— swap in a real customer quote once you have one</i></div>
-
-  <h2>Pricing</h2>
-  <table class="price-table">
-    <tr><th>Price</th><th>What you get</th><th>Best for</th></tr>
-    <tr><td>$9</td><td>Checklist only</td><td>Impulse buy, top-of-funnel</td></tr>
-    <tr><td>$27</td><td>Full kit (checklist + tracker + score tool + PDF export)</td><td>Standalone anchor price</td></tr>
-    <tr><td>$37</td><td>Full kit + Done-For-You bundle (premium swipe file + 50-citation directory list)</td><td>Upsell after $27 purchase</td></tr>
-  </table>
-  <p style="font-size:13px;color:var(--gray);text-align:center;">No live calls, no consultations — every tier is a self-contained file you download and use on your own.</p>
-  <div style="display:flex;gap:10px;justify-content:center;margin:20px 0 10px;flex-wrap:wrap;">
-    <a href="../the-15-minute-profile-audit-checklist.html" style="font-size:13px;font-weight:700;color:var(--teal);text-decoration:none;border:1.5px solid var(--teal);border-radius:20px;padding:8px 18px;">Try the $9 Checklist</a>
-    <a href="../interactive-playbook-v20-launch-ready.html" style="font-size:13px;font-weight:700;color:var(--teal);text-decoration:none;border:1.5px solid var(--teal);border-radius:20px;padding:8px 18px;">Try the $27 Full Kit</a>
-    <a href="../package-breakdown.html" style="font-size:13px;font-weight:700;color:var(--teal);text-decoration:none;border:1.5px solid var(--teal);border-radius:20px;padding:8px 18px;">See What's in the $37 Bundle</a>
+  <h2>Pick Your Plan</h2>
+  <div class="plans">
+    <div class="plan">
+      <div class="name">The Basics</div>
+      <div class="price">$9 <span style="text-decoration:line-through; opacity:.55; font-size:16px;">$12</span></div>
+      <div class="who">Want to try it small first? This is the 15-minute checklist only — the fastest, cheapest way to see results today. Launch price, going up to $12 soon.</div>
+      <a class="pick" href="../the-15-minute-profile-audit-checklist.html">Get the Checklist</a>
+    </div>
+    <div class="plan featured">
+      <div class="tag">Most Popular</div>
+      <div class="name">The Full Kit</div>
+      <div class="price">$27</div>
+      <div class="who">Everything: the checklist, the score check, the weekly habit tracker, and a way to save/download your work.</div>
+      <a class="pick" href="../interactive-playbook-v20-launch-ready.html">Get the Full Kit</a>
+    </div>
+    <div class="plan">
+      <div class="name">Full Kit + Extras</div>
+      <div class="price">$37</div>
+      <div class="who">Everything in the Full Kit, plus ready-to-use writing templates and a list of 50 places to list your business online.</div>
+      <a class="pick" href="../package-breakdown.html">See What's Included</a>
+    </div>
   </div>
-  <p style="font-size:12px;color:var(--gray);text-align:center;font-style:italic;">Testing links — swap for real Gumroad checkout URLs once your Gumroad store is set up.</p>
+  <p class="plans-note">No live calls, no meetings — every plan is a file you download and use on your own. (Links above open the actual product for you to try — checkout isn't live yet.)</p>
 
-  <h2>FAQ</h2>
-  <p class="faq-q">Do I need any technical skill?</p>
-  <p>No. If you can check a box and type into a Google Business Profile, you can do this.</p>
+  <h2>Proof</h2>
+  <div class="callout">"[Business name] went from page 3 to the top 3 map results in 6 weeks — no ads, only this checklist." <i>— swap in a real customer quote once you have one</i></div>
+
+  <h2>Questions People Ask</h2>
+  <p class="faq-q">Do I need any tech skill?</p>
+  <p>No. If you can check a box and fill out a form, you can do this.</p>
   <p class="faq-q">Will this work if I have zero reviews right now?</p>
-  <p>Yes — Section 3 is built for exactly that starting point.</p>
+  <p>Yes — the review section is built for exactly that starting point.</p>
   <p class="faq-q">Is this a one-time fix or ongoing work?</p>
-  <p>Both — Sections 1–3 are the one-time fix, Sections 4–5 are the 20-min/week and monthly habit that keeps it from sliding back.</p>
-  <p class="faq-q">Does this replace an SEO agency?</p>
-  <p>For a single-location local business, yes — this covers what an agency charges $300–$1000/mo for on the basics.</p>
+  <p>Both — the checklist is a one-time fix, and the weekly/monthly tracker is a 20-minute habit that keeps it from sliding back.</p>
+  <p class="faq-q">Does this replace hiring a marketing company?</p>
+  <p>For a single-location local business, yes — this covers what a marketing agency would charge $300–$1000 a month for on the basics.</p>
 
-  <a class="cta" href="../interactive-playbook-v20-launch-ready.html">Get Your Listing Fixed Today — $27</a>
-
-  <h2>Alternative Headlines (A/B test)</h2>
-  <p class="headline-alt">"Why Your Competitor Outranks You on Google Maps (And the 30-Minute Fix)"</p>
-  <p class="headline-alt">"The Google Business Profile Checklist Local Shops Wish They Had Sooner"</p>
-  <p class="headline-alt">"Stop Losing Customers to the Shop Down the Street With a Better Google Listing"</p>
+  <a class="cta" href="../interactive-playbook-v20-launch-ready.html">Stop Losing Customers Today — $27</a>
 </div>
 </body>
 </html>

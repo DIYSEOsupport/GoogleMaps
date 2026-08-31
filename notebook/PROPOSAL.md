@@ -88,9 +88,9 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 
 | Tier | Price | Deliverable | Positioning |
 |---|---|---|---|
-| 1 | **$9** | `the-15-minute-profile-audit-checklist.html` — Section 1 only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static build, `localStorage` autosave, no trackers/quiz/PDF export | Impulse buy, top-of-funnel |
+| 1 | **$12 list / $9 launch promo** | `the-15-minute-profile-audit-checklist.html` — Section 1 only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static build, `localStorage` autosave, no trackers/quiz/PDF export | Impulse buy, top-of-funnel. Promo price creates urgency; raise to $12 list once a real deadline/limited-run mechanic is live |
 | 2 | **$27** | Full kit — checklist + tracker + score tool + PDF export (the interactive HTML tool) | Standalone anchor price; matches comparable Etsy digital templates ($15–$35) |
-| 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
+| 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex + all 4 companion files (GBP Blueprint, No-Tech Quick-Start Guide, SEO Printable Companion, Outreach Swipe Kit) | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
 
 Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to the same Gumroad bundle without restating a price — treat these as pointing at the $37 Tier 3 above, not a separate SKU.
 
@@ -100,19 +100,19 @@ Per direction, this stays a simple, one-time build with no ongoing maintenance c
 
 ### Deliverable matrix (as currently supportable by existing files)
 
-| | Tier 1 — $9 | Tier 2 — $27 | Tier 3 — $37 |
+| | Tier 1 — $9 promo ($12 list) | Tier 2 — $27 | Tier 3 — $37 |
 |---|---|---|---|
 | Interactive HTML checklist tool | `the-15-minute-profile-audit-checklist.html` (Section 1 only — built, resolves prior gap) | Full tool | Full tool |
 | Score Your Listing quiz | — | ✓ | ✓ |
 | Weekly/Monthly trackers | — | ✓ | ✓ |
 | PDF export | — | ✓ | ✓ |
-| GBP Category & Geo-Keyword Blueprint (55 niches) | — | [TODO: Need Decision] | [TODO: Need Decision] |
-| No-Tech Quick-Start Guide | — | [TODO: Need Decision] | [TODO: Need Decision] |
-| SEO Printable Companion (50-citation matrix + fillable logs) | — | [TODO: Need Decision] | [TODO: Need Decision] |
-| Outreach Swipe Kit (`revised-swipe-kit.html`, owner-facing) | — | [TODO: Need Decision] | [TODO: Need Decision] |
+| GBP Category & Geo-Keyword Blueprint (55 niches) | — | — | ✓ |
+| No-Tech Quick-Start Guide | — | — | ✓ |
+| SEO Printable Companion (50-citation matrix + fillable logs) | — | — | ✓ |
+| Outreach Swipe Kit (`revised-swipe-kit.html`, owner-facing) | — | — | ✓ |
 | Premium Copywriting Swipe File + 50-Citation Rolodex | — | — | ✓ |
 
-[TODO: Need Decision] — None of the four companion PDFs are explicitly assigned to a tier anywhere in the source docs. The business plan's own bonus idea — "add a '50 business types' category cheat sheet pack as a bonus PDF to raise perceived value at $27+" — implies the Geo-Keyword Blueprint PDF was meant to be a Tier 2/3 bonus, but this is never confirmed as final.
+**Resolved:** all 4 companion files assigned to Tier 3 exclusively — matches the business plan's own "raise perceived value at $27+" bonus idea and keeps the $27 Tier 2 anchor price simple (interactive tool only, no bonus files to juggle).
 
 ### Bonus/upsell idea (business plan, unconfirmed as shipped)
 "Add a '50 business types' category cheat sheet pack as a bonus PDF to raise perceived value at $27+" — this appears to already exist as the 55-niche Geo-Keyword Blueprint PDF, suggesting the idea *was* executed, just never formally assigned to a tier in writing.
