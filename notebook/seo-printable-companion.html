@@ -30,10 +30,22 @@ body { margin:0; background:var(--cream); color:var(--dark); font-family:var(--s
 .why { background:var(--teal-light); border-radius:8px; padding:14px 18px; margin:0 0 20px; font-size:13.5px; }
 .why-label { font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:6px; }
 
-/* Citation progress */
+/* Citation progress (shimmer, matches v20's sticky progress bar) */
 .progress-wrap { position:sticky; top:0; background:var(--cream); padding:12px 0; z-index:20; border-bottom:1px solid var(--line); margin-bottom:16px; }
 .progress-track { height:8px; background:var(--teal-light); border-radius:6px; overflow:hidden; }
-.progress-fill { height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--coral)); box-shadow:0 0 10px 1px rgba(192,138,46,.4); transition:width .5s ease; }
+.progress-fill {
+    height:100%; width:0%; position:relative; overflow:hidden;
+    background:linear-gradient(90deg, var(--teal), var(--coral));
+    box-shadow:0 0 10px 1px rgba(192,138,46,.4);
+    transition:width .5s ease, box-shadow .3s ease;
+}
+.progress-fill::after {
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+    width:40%; transform:translateX(-150%);
+    animation:shimmer 2.6s ease-in-out infinite;
+}
+@keyframes shimmer { 0%{transform:translateX(-150%);} 60%,100%{transform:translateX(350%);} }
 .progress-label { font-size:12px; color:var(--teal); font-weight:700; margin-top:5px; }
 
 .table-scroll { overflow-x:auto; }
@@ -76,26 +88,46 @@ body { margin:0; background:var(--cream); color:var(--dark); font-family:var(--s
 .copy-btn:hover { background:var(--teal); }
 .copy-btn.copied { background:var(--sage); }
 
-/* Trackers */
+/* Trackers — matches v20's table.tracker exactly */
 .track-h { font-weight:700; color:var(--teal); font-size:14px; margin:26px 0 10px; }
 table.tracker { width:100%; min-width:560px; border-collapse:collapse; font-size:13px; }
-table.tracker th { background:linear-gradient(135deg, var(--teal), #2c4459); color:#fff; font-size:11px; text-align:center; padding:9px 6px; font-weight:700; }
+table.tracker th { background:linear-gradient(135deg, var(--teal), #2c4459); color:#fff; font-size:11px; text-align:center; padding:10px 6px; font-weight:700; }
 table.tracker th:nth-child(3n+2) { background:linear-gradient(135deg, var(--coral), #8f6a22); }
 table.tracker th:nth-child(3n) { background:linear-gradient(135deg, var(--sage), #446750); }
+table.tracker th.yn-yes { background:linear-gradient(135deg, var(--teal), #2c4459); }
+table.tracker th.yn-no { background:linear-gradient(135deg, var(--coral), #8f6a22); }
 table.tracker td { border:1px solid var(--line); padding:4px; text-align:center; }
 table.tracker tr:nth-child(even) td { background:#fff; }
 table.tracker tr:nth-child(odd) td { background:var(--cream); }
-table.tracker input[type=text], table.tracker input[type=date], table.tracker input[type=number] {
+table.tracker tr:hover td { background:var(--teal-light); }
+
+table.tracker td.yn-yes input { accent-color:var(--teal); }
+table.tracker td.yn-no input { accent-color:var(--coral); }
+table.tracker td.yn-cell { text-align:center; cursor:pointer; padding:8px !important; }
+table.tracker td.yn-cell input { width:18px; height:18px; cursor:pointer; margin:0; vertical-align:middle; }
+
+table.tracker td.reveal-cell input[type=text],
+table.tracker td.reveal-cell input[type=date],
+table.tracker td.reveal-cell input[type=month] {
     width:100%; background:#fff; border:1.5px solid #a3b2c2; border-radius:4px;
     padding:7px 8px; font-size:12.5px; color:var(--dark); box-sizing:border-box;
 }
 table.tracker input:focus { border-color:var(--coral); outline:none; box-shadow:0 0 0 3px rgba(192,138,46,.15); }
-table.tracker select { width:100%; padding:6px; border-radius:4px; border:1.5px solid #a3b2c2; font-size:12.5px; }
+
+.rank-cell input.rank-good { color:#15803d; font-weight:700; }
+.rank-cell input.rank-mid { color:var(--coral); font-weight:700; }
+.rank-cell input.rank-bad { color:#b91c1c; font-weight:700; }
+
 .add-row-btn {
     background:var(--teal); color:#fff; border:none; padding:8px 16px; border-radius:6px;
     font-size:12.5px; font-weight:700; cursor:pointer; margin-top:10px;
 }
 .add-row-btn:hover { background:var(--coral); }
+.enter-row-btn {
+    background:#fff; color:var(--teal); border:1.5px solid var(--teal); padding:8px 16px; border-radius:6px;
+    font-size:12.5px; font-weight:700; cursor:pointer; margin-top:10px; margin-left:8px;
+}
+.enter-row-btn:hover { background:var(--teal-light); }
 
 /* Chart */
 .chart-card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin-top:14px; }
@@ -172,11 +204,17 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
   </div>
   <div class="table-scroll">
   <table class="tracker" id="table-ask">
-    <thead><tr><th>Customer Name</th><th>Date Asked</th><th>Method</th><th>Review Left?</th><th>Followed Up?</th></tr></thead>
+    <thead>
+      <tr><th rowspan="2">Customer Name</th><th rowspan="2">Date Asked</th><th rowspan="2">Method</th><th colspan="2">Review Left?</th><th colspan="2">Followed Up?</th></tr>
+      <tr><th class="yn-yes">Yes</th><th class="yn-no">No</th><th class="yn-yes">Yes</th><th class="yn-no">No</th></tr>
+    </thead>
     <tbody></tbody>
   </table>
   </div>
-  <button class="add-row-btn" data-add="table-ask">+ Add Row</button>
+  <div style="margin-top:10px;">
+    <button class="add-row-btn" data-add="table-ask">Add Row</button>
+    <button class="enter-row-btn" data-add="table-ask">Enter &#8629;</button>
+  </div>
 
   <div class="sec-head">
     <div class="sec-num">04</div>
@@ -187,11 +225,17 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
   </div>
   <div class="table-scroll">
   <table class="tracker" id="table-weekly">
-    <thead><tr><th>Week Of</th><th>Photo Posted?</th><th>Review Responded?</th><th>Post Made?</th><th>Weekly Focus / Notes</th></tr></thead>
+    <thead>
+      <tr><th rowspan="2">Week Of</th><th colspan="2">Photo Posted?</th><th colspan="2">Review Responded?</th><th colspan="2">Post Made?</th><th rowspan="2">Weekly Focus / Notes</th></tr>
+      <tr><th class="yn-yes">Yes</th><th class="yn-no">No</th><th class="yn-yes">Yes</th><th class="yn-no">No</th><th class="yn-yes">Yes</th><th class="yn-no">No</th></tr>
+    </thead>
     <tbody></tbody>
   </table>
   </div>
-  <button class="add-row-btn" data-add="table-weekly">+ Add Row</button>
+  <div style="margin-top:10px;">
+    <button class="add-row-btn" data-add="table-weekly">Add Row</button>
+    <button class="enter-row-btn" data-add="table-weekly">Enter &#8629;</button>
+  </div>
 
   <div class="sec-head">
     <div class="sec-num">05</div>
@@ -206,7 +250,10 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
     <tbody></tbody>
   </table>
   </div>
-  <button class="add-row-btn" data-add="table-rank">+ Add Row</button>
+  <div style="margin-top:10px;">
+    <button class="add-row-btn" data-add="table-rank">Add Row</button>
+    <button class="enter-row-btn" data-add="table-rank">Enter &#8629;</button>
+  </div>
 
   <div class="chart-card">
     <div class="chart-legend">
@@ -307,56 +354,91 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
     document.body.removeChild(ta);
   }
 
-  /* ---- Trackers ---- */
+  /* ---- Trackers — logical columns; 'ynpair' expands to Yes/No checkbox cells like v20 ---- */
   var tableSpecs = {
-    'table-ask': { cols: ['text','date','text','yn','yn'] },
-    'table-weekly': { cols: ['date','yn','yn','yn','text'] },
-    'table-rank': { cols: ['text','text','number','text','number','text'] }
+    'table-ask': { cols: ['text','date','text','ynpair','ynpair'] },
+    'table-weekly': { cols: ['date','ynpair','ynpair','ynpair','text'] },
+    'table-rank': { cols: ['text','text','rank','text','rank','text'] }
   };
 
+  function makeYnPair(value){
+    var tdYes = document.createElement('td'); tdYes.className = 'yn-cell yn-yes';
+    var tdNo = document.createElement('td'); tdNo.className = 'yn-cell yn-no';
+    var yes = document.createElement('input'); yes.type = 'checkbox';
+    var no = document.createElement('input'); no.type = 'checkbox';
+    if (value === 'Y') yes.checked = true;
+    if (value === 'N') no.checked = true;
+    yes.addEventListener('change', function(){ if (yes.checked) no.checked = false; });
+    no.addEventListener('change', function(){ if (no.checked) yes.checked = false; });
+    tdYes.appendChild(yes); tdNo.appendChild(no);
+    tdYes.addEventListener('click', function(e){ if (e.target !== yes) yes.click(); });
+    tdNo.addEventListener('click', function(e){ if (e.target !== no) no.click(); });
+    return { cells: [tdYes, tdNo], getValue: function(){ return yes.checked ? 'Y' : (no.checked ? 'N' : ''); }, els: [yes, no] };
+  }
+
   function makeCell(type, value){
+    if (type === 'ynpair') return makeYnPair(value);
     var td = document.createElement('td');
-    if (type === 'yn') {
-      var sel = document.createElement('select');
-      ['','Y','N'].forEach(function(v){
-        var opt = document.createElement('option'); opt.value = v; opt.textContent = v || '—';
-        sel.appendChild(opt);
-      });
-      sel.value = value || '';
-      td.appendChild(sel);
-      return { td: td, el: sel };
-    }
+    if (type === 'rank') td.className = 'reveal-cell rank-cell';
     var input = document.createElement('input');
-    input.type = (type === 'number') ? 'number' : (type === 'date' ? 'date' : 'text');
-    if (type === 'number') { input.min = 1; input.max = 200; }
+    input.type = (type === 'date') ? 'date' : 'text';
+    input.autocomplete = 'off';
     input.value = value || '';
+    if (type === 'rank') colorRankInput(input);
     td.appendChild(input);
-    return { td: td, el: input };
+    return { cells: [td], getValue: function(){ return input.value; }, els: [input] };
+  }
+
+  function colorRankInput(input){
+    var n = parseInt(input.value, 10);
+    input.classList.remove('rank-good', 'rank-mid', 'rank-bad');
+    if (!input.value.trim() || isNaN(n)) return;
+    if (n <= 3) input.classList.add('rank-good');
+    else if (n <= 10) input.classList.add('rank-mid');
+    else input.classList.add('rank-bad');
   }
 
   function addRow(tableId, rowData){
     var spec = tableSpecs[tableId];
     var tbody = document.querySelector('#' + tableId + ' tbody');
     var tr = document.createElement('tr');
-    var els = [];
+    var cellObjs = [];
     spec.cols.forEach(function(type, i){
       var cell = makeCell(type, rowData ? rowData[i] : '');
-      tr.appendChild(cell.td);
-      els.push(cell.el);
-      cell.el.addEventListener('input', saveTable(tableId));
-      cell.el.addEventListener('change', saveTable(tableId));
+      cell.cells.forEach(function(td){ tr.appendChild(td); });
+      cellObjs.push(cell);
+      cell.els.forEach(function(el){
+        el.addEventListener('input', function(){
+          if (type === 'rank') colorRankInput(el);
+          saveTable(tableId)();
+        });
+        el.addEventListener('change', saveTable(tableId));
+      });
     });
     tbody.appendChild(tr);
     if (tableId === 'table-rank') redrawChart();
+    return cellObjs;
   }
 
   function saveTable(tableId){
     return function(){
-      var spec = tableSpecs[tableId];
       var rows = [];
       document.querySelectorAll('#' + tableId + ' tbody tr').forEach(function(tr){
+        var spec = tableSpecs[tableId];
         var vals = [];
-        tr.querySelectorAll('input,select').forEach(function(el){ vals.push(el.value); });
+        var cellIdx = 0;
+        var cells = Array.prototype.slice.call(tr.children);
+        spec.cols.forEach(function(type){
+          if (type === 'ynpair') {
+            var yes = cells[cellIdx].querySelector('input');
+            var no = cells[cellIdx + 1].querySelector('input');
+            vals.push(yes.checked ? 'Y' : (no.checked ? 'N' : ''));
+            cellIdx += 2;
+          } else {
+            vals.push(cells[cellIdx].querySelector('input').value);
+            cellIdx += 1;
+          }
+        });
         rows.push(vals);
       });
       state.tables[tableId] = rows;
