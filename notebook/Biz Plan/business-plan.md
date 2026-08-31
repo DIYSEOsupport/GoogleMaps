@@ -9,7 +9,7 @@
 **3 price points:**
 - **$9** — impulse buy. "The checklist," sold standalone on Gumroad/Etsy.
 - **$27** — standalone "kit" price (current form). Anchor price, matches comparable Etsy digital templates ($15–$35).
-- **$47** — bundled with a 15-min "listing audit call." Upsell after the $27 purchase.
+- **$37** — Done-For-You bundle (premium copywriting swipe file + 50-citation directory list). Upsell after the $27 purchase. No live calls — self-contained files only.
 
 **Bundle idea:** add a "50 business types" category cheat sheet pack as a bonus PDF to raise perceived value at $27+.
 
@@ -62,4 +62,4 @@ See `promo-posts.txt` for 3 ready-to-post variants (Facebook, Reddit, cold email
 - **Days 8–9:** List on Etsy Digital, adapted copy.
 - **Days 10–11:** Post in allowed Reddit thread, Nextdoor Business.
 - **Days 12–13:** If organic conversion proves out, start $10/day Meta ad test.
-- **Day 14:** Full review — sales by channel, best-performing copy, decide on $47 tier next.
+- **Day 14:** Full review — sales by channel, best-performing copy, decide on $37 tier next.

@@ -82,7 +82,7 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 
 **Resolved:** no live/human-delivered calls in this product. `business-plan.md:12` and `sales-page.html:65` both describe Tier 3 as "kit + 15-min live listing audit call" — that live-call offer is cut. Tier 3 is the $37 "Done-For-You" bundle (Premium Copywriting Swipe File + 50-Citation Rolodex) already shipped inside `interactive-playbook-v20-launch-ready.html`, since it needs no human time and matches what's actually live on Gumroad today. Priced low and kept simple per direction — no new build, no added maintenance.
 
-[TODO: Need Decision] — `business-plan.md` and `sales-page.html` still describe the $47 audit-call tier; they need a rewrite pass to replace it with the $37 Done-For-You bundle (or drop the price point / renumber to $37) so all docs agree.
+**Resolved:** `business-plan.md` and `sales-page.html` rewritten — both now show $9/$27/$37 with no live-call language, and `sales-page.html` CTAs point at the actual product files for pre-Gumroad testing.
 
 ### Tier ladder (final)
 
