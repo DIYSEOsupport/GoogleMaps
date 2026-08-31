@@ -128,6 +128,11 @@ table.tracker input:focus { border-color:var(--coral); outline:none; box-shadow:
     font-size:12.5px; font-weight:700; cursor:pointer; margin-top:10px; margin-left:8px;
 }
 .enter-row-btn:hover { background:var(--teal-light); }
+.clear-row-btn {
+    background:#fff; color:var(--gray); border:1.5px solid var(--line); padding:8px 16px; border-radius:6px;
+    font-size:12.5px; font-weight:700; cursor:pointer; margin-top:10px; margin-left:8px;
+}
+.clear-row-btn:hover { background:#fdecec; color:#b91c1c; border-color:#b91c1c; }
 
 /* Chart */
 .chart-card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin-top:14px; }
@@ -214,6 +219,7 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
   <div style="margin-top:10px;">
     <button class="add-row-btn" data-add="table-ask">Add Row</button>
     <button class="enter-row-btn" data-add="table-ask">Enter &#8629;</button>
+    <button class="clear-row-btn" data-clear="table-ask">Clear Log</button>
   </div>
 
   <div class="sec-head">
@@ -235,6 +241,7 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
   <div style="margin-top:10px;">
     <button class="add-row-btn" data-add="table-weekly">Add Row</button>
     <button class="enter-row-btn" data-add="table-weekly">Enter &#8629;</button>
+    <button class="clear-row-btn" data-clear="table-weekly">Clear Log</button>
   </div>
 
   <div class="sec-head">
@@ -253,6 +260,7 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
   <div style="margin-top:10px;">
     <button class="add-row-btn" data-add="table-rank">Add Row</button>
     <button class="enter-row-btn" data-add="table-rank">Enter &#8629;</button>
+    <button class="clear-row-btn" data-clear="table-rank">Clear Log</button>
   </div>
 
   <div class="chart-card">
@@ -459,6 +467,17 @@ footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic
   document.querySelectorAll('[data-add]').forEach(function(btn){
     btn.addEventListener('click', function(){
       addRow(btn.getAttribute('data-add'));
+    });
+  });
+
+  document.querySelectorAll('[data-clear]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tableId = btn.getAttribute('data-clear');
+      if (!confirm('Clear all rows in this log? This cannot be undone.')) return;
+      document.querySelector('#' + tableId + ' tbody').innerHTML = '';
+      state.tables[tableId] = [];
+      safeSet(state);
+      addRow(tableId);
     });
   });
 
