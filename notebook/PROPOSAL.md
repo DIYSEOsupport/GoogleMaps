@@ -23,7 +23,7 @@
 
 ## 2. Target Audience & Customer Persona
 
-**Single persona: the DIY Local Business Owner.** This product is sold directly to the business owner to fix and grow their own listing — there is no agency/reseller customer and no resale model. One document (`outreach-sales-swipe-kit-launch-ready.pdf`) contained agency-facing resale language ("high-margin digital marketing agencies and small business consultants," a "Confidential – Commercial License" mark, a productized "30-Minute Local Visibility Fix" resale offer) — **resolved**: rewritten as `revised-swipe-kit.html`, owner-facing only, agency/resale content replaced. See §3.
+**Single persona: the DIY Local Business Owner.** This product is sold directly to the business owner to fix and grow their own listing — there is no agency/reseller customer and no resale model. One document (`outreach-sales-swipe-kit-launch-ready.pdf`) contained agency-facing resale language ("high-margin digital marketing agencies and small business consultants," a "Confidential – Commercial License" mark, a productized "30-Minute Local Visibility Fix" resale offer) — **resolved**: rewritten as `ready-to-send-scripts.html`, owner-facing only, agency/resale content replaced. See §3.
 
 - Solo/family-run local business, 1–15 employees, no marketing staff, no agency budget.
 - Revenue roughly $150K–$1.5M/yr. Fix budget: $0–$50 one-time, not a monthly retainer.
@@ -67,14 +67,14 @@ The flagship deliverable is `interactive-playbook-v20-launch-ready.html` — a s
 |---|---|---|
 | `gbp-category-geo-keyword-blueprint` | 4 | Superseded by `gbp-category-geo-keyword-blueprint.html` — same 55-niche table, styled to match v20, adds a live niche search filter |
 | `no-tech-quick-start-guide` | 1 | Superseded by `no-tech-quick-start-guide.html` — same 3-habit content, styled to match v20, adds per-habit weekly checkboxes |
-| `outreach-sales-swipe-kit` | 6 | Superseded by `revised-swipe-kit.html` (owner-facing rewrite, see below) |
+| `outreach-sales-swipe-kit` | 6 | Superseded by `ready-to-send-scripts.html` (renamed from `revised-swipe-kit.html` — dropped "Swipe Kit" copywriting jargon; owner-facing rewrite, see below) |
 | `seo-printable-companion` (v8) | 8 | Superseded by `local-listings-companion.html` (renamed from `seo-printable-companion.html` — dropped "SEO" per plain-English positioning) — citation matrix, review funnel, and all 3 logs styled to match v20, now checkable/fillable with autosave and an interactive ranking chart |
 
-The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In") is duplicated near-verbatim between the interactive tool, the Local Listings Companion, and the Outreach Swipe Kit — confirmed shared content module reused across three deliverables.
+The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In") is duplicated near-verbatim between the interactive tool, the Local Listings Companion, and the Ready-to-Send Scripts file — confirmed shared content module reused across three deliverables.
 
-**Resolved:** `outreach-sales-swipe-kit-launch-ready.pdf` has been rewritten and rebuilt as `revised-swipe-kit.html`, styled to match v20 (Fraunces/Inter, gradient tables, coral upsell/script styling) with working copy-to-clipboard buttons on every script. Section 1 (review-request scripts) and Section 2 (social post swipe copy) keep the original content — already owner-facing. Section 3, the original agency-to-business-owner cold-sales sequence ("30-Minute Local Visibility Fix" resale pitch, "Confidential – Commercial License," booking-link close), is replaced with a **Local Partner Cross-Promotion Outreach** — a 3-touchpoint script for the business owner to build referral relationships with nearby non-competing businesses. `REVISED_SWIPE_KIT.md` (the plain-text draft) stays as the source-of-truth copy; the `.html` is the styled, shippable version.
+**Resolved:** `outreach-sales-swipe-kit-launch-ready.pdf` has been rewritten and rebuilt as `ready-to-send-scripts.html` (renamed from `revised-swipe-kit.html` — "swipe kit" is copywriting-industry jargon a non-tech buyer wouldn't recognize), styled to match v20 (Fraunces/Inter, gradient tables, coral upsell/script styling) with working copy-to-clipboard buttons on every script. Section 1 (review-request scripts) and Section 2 (social post copy) keep the original content — already owner-facing. Section 3, the original agency-to-business-owner cold-sales sequence ("30-Minute Local Visibility Fix" resale pitch, "Confidential – Commercial License," booking-link close), is replaced with a **Local Partner Cross-Promotion Outreach** — a 3-touchpoint script for the business owner to build referral relationships with nearby non-competing businesses. `READY_TO_SEND_SCRIPTS.md` (renamed from `REVISED_SWIPE_KIT.md`, the plain-text draft) stays as the source-of-truth copy; the `.html` is the styled, shippable version.
 
-[TODO: Need Decision] — `revised-swipe-kit.html` is a drafted replacement, not yet swapped into the actual product bundle in place of the original PDF. Confirm it before the PDF is retired/replaced in the shipped deliverable set.
+[TODO: Need Decision] — `ready-to-send-scripts.html` is a drafted replacement, not yet swapped into the actual product bundle in place of the original PDF. Confirm it before the PDF is retired/replaced in the shipped deliverable set.
 
 ---
 
@@ -90,7 +90,7 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 |---|---|---|---|
 | 1 | **$12 list / $9 launch promo** | `the-15-minute-profile-audit-checklist.html` — Section 1 only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static build, `localStorage` autosave, no trackers/quiz/PDF export | Impulse buy, top-of-funnel. Promo price creates urgency; raise to $12 list once a real deadline/limited-run mechanic is live |
 | 2 | **$27** | Full kit — checklist + tracker + score tool + PDF export (the interactive HTML tool) | Standalone anchor price; matches comparable Etsy digital templates ($15–$35) |
-| 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex + all 4 companion files (GBP Blueprint, No-Tech Quick-Start Guide, Local Listings Companion, Outreach Swipe Kit) | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
+| 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex + all 4 companion files (GBP Blueprint, No-Tech Quick-Start Guide, Local Listings Companion, Ready-to-Send Scripts) | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
 
 Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to the same Gumroad bundle without restating a price — treat these as pointing at the $37 Tier 3 above, not a separate SKU.
 
@@ -109,7 +109,7 @@ Per direction, this stays a simple, one-time build with no ongoing maintenance c
 | GBP Category & Geo-Keyword Blueprint (55 niches) | — | — | ✓ |
 | No-Tech Quick-Start Guide | — | — | ✓ |
 | Local Listings Companion (50-citation matrix + fillable logs) | — | — | ✓ |
-| Outreach Swipe Kit (`revised-swipe-kit.html`, owner-facing) | — | — | ✓ |
+| Ready-to-Send Scripts (`ready-to-send-scripts.html`, owner-facing) | — | — | ✓ |
 | Premium Copywriting Swipe File + 50-Citation Rolodex | — | — | ✓ |
 
 **Resolved:** all 4 companion files assigned to Tier 3 exclusively — matches the business plan's own "raise perceived value at $27+" bonus idea and keeps the $27 Tier 2 anchor price simple (interactive tool only, no bonus files to juggle).

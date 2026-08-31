@@ -1,6 +1,6 @@
-# The Google Maps Fix — Outreach & Sales Swipe Kit (Revised)
+# The Google Maps Fix — Ready-to-Send Scripts & Templates (Revised)
 
-*Rewrite of `outreach-sales-swipe-kit-launch-ready.pdf`. Original was written for agency/consultant resale ("high-margin digital marketing agencies," a "Confidential – Commercial License," a sales sequence pitching business owners on a paid retainer). Per product direction, there is no agency reseller — this kit is sold directly to the business owner, for their own listing. Section 1 and 2 below are the original content, unchanged (already owner-facing). Section 3 is replaced — the original was a cold-email sequence for selling SEO services to other businesses, which doesn't apply here.*
+*Rewrite of `outreach-sales-swipe-kit-launch-ready.pdf`. Original was written for agency/consultant resale ("high-margin digital marketing agencies," a "Confidential – Commercial License," a sales sequence pitching business owners on a paid retainer). Per product direction, there is no agency reseller — these scripts are sold directly to the business owner, for their own listing. Section 1 and 2 below are the original content, unchanged (already owner-facing). Section 3 is replaced — the original was a cold-email sequence for selling marketing services to other businesses, which doesn't apply here.*
 
 ---
 
