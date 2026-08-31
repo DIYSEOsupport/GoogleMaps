@@ -68,9 +68,9 @@ The flagship deliverable is `interactive-playbook-v20-launch-ready.html` — a s
 | `gbp-category-geo-keyword-blueprint` | 4 | Superseded by `gbp-category-geo-keyword-blueprint.html` — same 55-niche table, styled to match v20, adds a live niche search filter |
 | `no-tech-quick-start-guide` | 1 | Superseded by `no-tech-quick-start-guide.html` — same 3-habit content, styled to match v20, adds per-habit weekly checkboxes |
 | `outreach-sales-swipe-kit` | 6 | Superseded by `revised-swipe-kit.html` (owner-facing rewrite, see below) |
-| `seo-printable-companion` (v8) | 8 | Superseded by `seo-printable-companion.html` — citation matrix, review funnel, and all 3 logs styled to match v20, now checkable/fillable with autosave and an interactive ranking chart |
+| `seo-printable-companion` (v8) | 8 | Superseded by `local-listings-companion.html` (renamed from `seo-printable-companion.html` — dropped "SEO" per plain-English positioning) — citation matrix, review funnel, and all 3 logs styled to match v20, now checkable/fillable with autosave and an interactive ranking chart |
 
-The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In") is duplicated near-verbatim between the interactive tool, the SEO Printable Companion, and the Outreach Swipe Kit — confirmed shared content module reused across three deliverables.
+The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In") is duplicated near-verbatim between the interactive tool, the Local Listings Companion, and the Outreach Swipe Kit — confirmed shared content module reused across three deliverables.
 
 **Resolved:** `outreach-sales-swipe-kit-launch-ready.pdf` has been rewritten and rebuilt as `revised-swipe-kit.html`, styled to match v20 (Fraunces/Inter, gradient tables, coral upsell/script styling) with working copy-to-clipboard buttons on every script. Section 1 (review-request scripts) and Section 2 (social post swipe copy) keep the original content — already owner-facing. Section 3, the original agency-to-business-owner cold-sales sequence ("30-Minute Local Visibility Fix" resale pitch, "Confidential – Commercial License," booking-link close), is replaced with a **Local Partner Cross-Promotion Outreach** — a 3-touchpoint script for the business owner to build referral relationships with nearby non-competing businesses. `REVISED_SWIPE_KIT.md` (the plain-text draft) stays as the source-of-truth copy; the `.html` is the styled, shippable version.
 
@@ -90,7 +90,7 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 |---|---|---|---|
 | 1 | **$12 list / $9 launch promo** | `the-15-minute-profile-audit-checklist.html` — Section 1 only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static build, `localStorage` autosave, no trackers/quiz/PDF export | Impulse buy, top-of-funnel. Promo price creates urgency; raise to $12 list once a real deadline/limited-run mechanic is live |
 | 2 | **$27** | Full kit — checklist + tracker + score tool + PDF export (the interactive HTML tool) | Standalone anchor price; matches comparable Etsy digital templates ($15–$35) |
-| 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex + all 4 companion files (GBP Blueprint, No-Tech Quick-Start Guide, SEO Printable Companion, Outreach Swipe Kit) | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
+| 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex + all 4 companion files (GBP Blueprint, No-Tech Quick-Start Guide, Local Listings Companion, Outreach Swipe Kit) | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
 
 Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to the same Gumroad bundle without restating a price — treat these as pointing at the $37 Tier 3 above, not a separate SKU.
 
@@ -108,7 +108,7 @@ Per direction, this stays a simple, one-time build with no ongoing maintenance c
 | PDF export | — | ✓ | ✓ |
 | GBP Category & Geo-Keyword Blueprint (55 niches) | — | — | ✓ |
 | No-Tech Quick-Start Guide | — | — | ✓ |
-| SEO Printable Companion (50-citation matrix + fillable logs) | — | — | ✓ |
+| Local Listings Companion (50-citation matrix + fillable logs) | — | — | ✓ |
 | Outreach Swipe Kit (`revised-swipe-kit.html`, owner-facing) | — | — | ✓ |
 | Premium Copywriting Swipe File + 50-Citation Rolodex | — | — | ✓ |
 
@@ -184,7 +184,7 @@ Subject: "Your Google Maps Fix — start here." Instructs the buyer to open the 
 **Fixed (high priority): quarterly review, no subscription.** A one-time purchase stays sustainable without turning this into a retainer product (which would contradict the core sales pitch — "$0–$50 one-time, not a monthly retainer," "no agency required"). Plan:
 - **Owner:** whoever maintains the product (single owner, no team needed at this scale).
 - **Cadence:** quarterly (4x/year) review of the two things that actually go stale:
-  - The 50-site citation matrix (now `seo-printable-companion.html`) — check directory URLs still resolve, spot-check DA scores.
+  - The 50-site citation matrix (now `local-listings-companion.html`) — check directory URLs still resolve, spot-check DA scores.
   - The 55-niche GBP category table (now `gbp-category-geo-keyword-blueprint.html`) — check for renamed/merged Google categories.
 - **Distribution:** re-issue the updated file(s) as a free re-download to existing buyers via the sales platform's update mechanism (Gumroad supports pushing file updates to past purchasers at no extra cost) — not a new purchase, not a subscription.
 - **Trust signal:** stamp a "Content last verified: [date]" line into the product itself (interactive tool footer + each PDF footer) so buyers can see freshness without asking. Doubles as the versioning practice implied but never formalized by the existing "v8"/"v20" filename suffixes.
