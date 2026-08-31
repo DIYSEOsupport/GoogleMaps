@@ -23,7 +23,7 @@
 
 ## 2. Target Audience & Customer Persona
 
-**Single persona: the DIY Local Business Owner.** This product is sold directly to the business owner to fix and grow their own listing — there is no agency/reseller customer and no resale model. One document (`outreach-sales-swipe-kit-launch-ready.pdf`) contains agency-facing resale language ("high-margin digital marketing agencies and small business consultants," a "Confidential – Commercial License" mark, a productized "30-Minute Local Visibility Fix" resale offer) — per direction, that framing is **out of scope** and should be treated as leftover/misdirected content in that one PDF, not a second product line. See §3 for the fix to that file.
+**Single persona: the DIY Local Business Owner.** This product is sold directly to the business owner to fix and grow their own listing — there is no agency/reseller customer and no resale model. One document (`outreach-sales-swipe-kit-launch-ready.pdf`) contained agency-facing resale language ("high-margin digital marketing agencies and small business consultants," a "Confidential – Commercial License" mark, a productized "30-Minute Local Visibility Fix" resale offer) — **resolved**: rewritten as `REVISED_SWIPE_KIT.md`, owner-facing only, agency/resale content replaced. See §3.
 
 - Solo/family-run local business, 1–15 employees, no marketing staff, no agency budget.
 - Revenue roughly $150K–$1.5M/yr. Fix budget: $0–$50 one-time, not a monthly retainer.
@@ -67,12 +67,14 @@ The flagship deliverable is `interactive-playbook-v20-launch-ready.html` — a s
 |---|---|---|
 | `gbp-category-geo-keyword-blueprint` | 4 | 55-niche category + geo-keyword reference table |
 | `no-tech-quick-start-guide` | 1 | 3-habit weekly maintenance one-pager |
-| `outreach-sales-swipe-kit` | 6 | Review-request + outreach scripts. Currently written with agency-resale framing — needs rewrite to owner-facing copy (see below) |
+| `outreach-sales-swipe-kit` | 6 | Superseded by `REVISED_SWIPE_KIT.md` (owner-facing rewrite, see below) |
 | `seo-printable-companion` (v8) | 8 | Printable 50-citation directory + blank fillable logs |
 
 The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In") is duplicated near-verbatim between the interactive tool, the SEO Printable Companion, and the Outreach Swipe Kit — confirmed shared content module reused across three deliverables.
 
-**Fix:** `outreach-sales-swipe-kit-launch-ready.pdf` needs a rewrite. There is no agency customer for this product — it's sold directly to the business owner. Strip the agency/reseller sales-funnel content (the "30-Minute Local Visibility Fix" productized resale offer, the "Confidential – Commercial License" mark, the cold-email sequence for selling to other businesses) and keep only what's owner-facing: the review-outreach scripts and social-post swipe copy, matching the tone already used in the SEO Printable Companion's version of the same content.
+**Resolved:** `outreach-sales-swipe-kit-launch-ready.pdf` has been rewritten as `REVISED_SWIPE_KIT.md`. Section 1 (review-request scripts) and Section 2 (social post swipe copy) are unchanged — already owner-facing. Section 3, the original agency-to-business-owner cold-sales sequence ("30-Minute Local Visibility Fix" resale pitch, "Confidential – Commercial License," booking-link close), is replaced with a **Local Partner Cross-Promotion Outreach** — a 3-touchpoint script for the business owner to build referral relationships with nearby non-competing businesses. Same underlying goal (more visibility, more reviews, more inbound customers) achieved through a tactic that fits a single-owner buyer instead of a resale funnel.
+
+[TODO: Need Decision] — `REVISED_SWIPE_KIT.md` is a drafted replacement, not yet swapped into the actual product bundle in place of the original PDF. Confirm it before the PDF is retired/replaced in the shipped deliverable set.
 
 ---
 
@@ -103,7 +105,7 @@ Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to
 | GBP Category & Geo-Keyword Blueprint (55 niches) | — | [TODO: Need Decision] | [TODO: Need Decision] |
 | No-Tech Quick-Start Guide | — | [TODO: Need Decision] | [TODO: Need Decision] |
 | SEO Printable Companion (50-citation matrix + fillable logs) | — | [TODO: Need Decision] | [TODO: Need Decision] |
-| Outreach Sales Swipe Kit (owner-facing, rewritten) | — | [TODO: Need Decision] | [TODO: Need Decision] |
+| Outreach Swipe Kit (`REVISED_SWIPE_KIT.md`, owner-facing) | — | [TODO: Need Decision] | [TODO: Need Decision] |
 | Premium Copywriting Swipe File + 50-Citation Rolodex | — | — | ✓ |
 
 [TODO: Need Decision] — None of the four companion PDFs are explicitly assigned to a tier anywhere in the source docs. The business plan's own bonus idea — "add a '50 business types' category cheat sheet pack as a bonus PDF to raise perceived value at $27+" — implies the Geo-Keyword Blueprint PDF was meant to be a Tier 2/3 bonus, but this is never confirmed as final.
