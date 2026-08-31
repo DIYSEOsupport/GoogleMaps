@@ -2323,7 +2323,7 @@
         const qrBox = document.getElementById('syncQR');
         if (isMobile) {
             qrBox.style.display = 'none';
-            setStatus('Paired! Enter code on other device to complete pair.');
+            setStatus('Code ready. Enter it on your other device to pair.');
         } else {
             qrBox.style.display = '';
             const link = location.href.split('?')[0] + '?pair=' + code;
@@ -2334,11 +2334,11 @@
             qrBox.innerHTML = qr.createImgTag(cellSize, 0);
             const syncImg = qrBox.querySelector('img');
             if (syncImg) {
-                syncImg.style.width = "100%";
-                syncImg.style.height = "100%";
+                syncImg.style.width = "140px";
+                syncImg.style.height = "140px";
                 syncImg.style.imageRendering = "pixelated";
             }
-            setStatus('Paired! Scan QR on phone, or enter code.');
+            setStatus('Code ready. Scan the QR on your phone, or enter the code.');
         }
         document.getElementById('syncPairedCode').textContent = code;
     });
