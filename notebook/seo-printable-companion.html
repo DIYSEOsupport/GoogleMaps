@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Printable Companion — The Google Maps Fix</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;700&display=swap');
+:root {
+    --teal:#3E5C76; --teal-light:#E8EEF2; --coral:#C08A2E; --coral-light:#F5EBD9;
+    --cream:#FAFAF9; --dark:#1F2530; --gray:#5B6472; --line:#E4E7EB; --sage:#5B8266;
+    --sans:'Inter','Helvetica Neue',Arial,sans-serif; --serif:'Fraunces',Georgia,serif;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--cream); color:var(--dark); font-family:var(--sans); line-height:1.5; }
+.wrap { max-width:880px; margin:0 auto; padding:0 24px 100px; }
+.cover { text-align:center; padding:56px 24px 30px; }
+.kicker { font-size:12px; font-weight:700; letter-spacing:.14em; color:var(--coral); margin-bottom:16px; text-transform:uppercase; }
+.cover h1 { font-family:var(--serif); font-size:32px; color:var(--teal); margin:0 0 14px; line-height:1.15; font-weight:700; }
+.rule { width:60px; height:2px; background:var(--coral); margin:26px auto; border:none; }
+.cover p.sub { font-size:15px; color:var(--dark); max-width:560px; margin:0 auto; }
+
+.sec-head { display:flex; gap:20px; align-items:flex-start; margin:44px 0 20px; padding-top:36px; border-top:1px solid var(--line); }
+.sec-head:first-of-type { border-top:none; padding-top:0; }
+.sec-num { font-size:40px; font-weight:700; color:var(--coral-light); line-height:1; transition:color .2s ease; }
+.sec-head:hover .sec-num { color:var(--coral); }
+.sec-title { font-family:var(--serif); font-size:21px; font-weight:700; color:var(--teal); margin:0 0 4px; }
+.sec-sub { font-style:italic; font-size:13.5px; color:var(--gray); margin:0; }
+
+.why { background:var(--teal-light); border-radius:8px; padding:14px 18px; margin:0 0 20px; font-size:13.5px; }
+.why-label { font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:6px; }
+
+/* Citation progress */
+.progress-wrap { position:sticky; top:0; background:var(--cream); padding:12px 0; z-index:20; border-bottom:1px solid var(--line); margin-bottom:16px; }
+.progress-track { height:8px; background:var(--teal-light); border-radius:6px; overflow:hidden; }
+.progress-fill { height:100%; width:0%; background:linear-gradient(90deg, var(--teal), var(--coral)); box-shadow:0 0 10px 1px rgba(192,138,46,.4); transition:width .5s ease; }
+.progress-label { font-size:12px; color:var(--teal); font-weight:700; margin-top:5px; }
+
+.table-scroll { overflow-x:auto; }
+.reftable { width:100%; border-collapse:collapse; margin:0 0 6px; font-size:12.5px; }
+.reftable th { background:linear-gradient(135deg, var(--teal), #2c4459); color:#fff; font-size:10.5px; text-align:left; padding:9px 10px; font-weight:700; }
+.reftable th.center { text-align:center; }
+.reftable td { border:1px solid var(--line); padding:8px 10px; vertical-align:middle; }
+.reftable td.center { text-align:center; }
+.reftable td a { color:var(--coral); font-weight:700; text-decoration:none; border-bottom:1.4px solid var(--coral); }
+.reftable tr:nth-child(even) td { background:#fff; }
+.reftable tr:nth-child(odd) td { background:var(--cream); }
+.reftable tr:hover td { background:var(--teal-light); }
+.reftable tr.claimed td { opacity:.5; }
+.reftable tr.claimed td:first-child { text-decoration:line-through; }
+.reftable input[type=checkbox] {
+    appearance:none; -webkit-appearance:none; width:17px; height:17px;
+    border:1.6px solid var(--teal); border-radius:4px; cursor:pointer; position:relative; background:#fff;
+    transition:box-shadow .3s ease, background .15s ease;
+}
+.reftable input[type=checkbox]:checked { background:var(--teal); box-shadow:0 0 0 4px rgba(62,92,118,.25); }
+.reftable input[type=checkbox]:checked::after {
+    content:""; position:absolute; left:4px; top:0; width:5px; height:9px;
+    border:solid white; border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.note { font-size:12.5px; color:var(--gray); margin-top:10px; }
+
+/* Scripts */
+.touchpoint { margin-bottom:24px; }
+.touchpoint-h { font-weight:700; color:var(--teal); font-size:14.5px; margin-bottom:2px; }
+.touchpoint-meta { font-size:12px; color:var(--gray); margin-bottom:10px; }
+.script-box {
+    background:var(--coral-light); border:1px solid var(--coral); border-radius:8px;
+    padding:16px 18px; font-style:italic; font-size:14px; position:relative; white-space:pre-line;
+}
+.copy-btn {
+    position:absolute; top:10px; right:10px; background:var(--coral); color:#fff;
+    border:none; font-family:var(--sans); font-style:normal; font-size:11px; font-weight:700;
+    padding:5px 11px; border-radius:14px; cursor:pointer; transition:background .15s ease;
+}
+.copy-btn:hover { background:var(--teal); }
+.copy-btn.copied { background:var(--sage); }
+
+/* Trackers */
+.track-h { font-weight:700; color:var(--teal); font-size:14px; margin:26px 0 10px; }
+table.tracker { width:100%; min-width:560px; border-collapse:collapse; font-size:13px; }
+table.tracker th { background:linear-gradient(135deg, var(--teal), #2c4459); color:#fff; font-size:11px; text-align:center; padding:9px 6px; font-weight:700; }
+table.tracker th:nth-child(3n+2) { background:linear-gradient(135deg, var(--coral), #8f6a22); }
+table.tracker th:nth-child(3n) { background:linear-gradient(135deg, var(--sage), #446750); }
+table.tracker td { border:1px solid var(--line); padding:4px; text-align:center; }
+table.tracker tr:nth-child(even) td { background:#fff; }
+table.tracker tr:nth-child(odd) td { background:var(--cream); }
+table.tracker input[type=text], table.tracker input[type=date], table.tracker input[type=number] {
+    width:100%; background:#fff; border:1.5px solid #a3b2c2; border-radius:4px;
+    padding:7px 8px; font-size:12.5px; color:var(--dark); box-sizing:border-box;
+}
+table.tracker input:focus { border-color:var(--coral); outline:none; box-shadow:0 0 0 3px rgba(192,138,46,.15); }
+table.tracker select { width:100%; padding:6px; border-radius:4px; border:1.5px solid #a3b2c2; font-size:12.5px; }
+.add-row-btn {
+    background:var(--teal); color:#fff; border:none; padding:8px 16px; border-radius:6px;
+    font-size:12.5px; font-weight:700; cursor:pointer; margin-top:10px;
+}
+.add-row-btn:hover { background:var(--coral); }
+
+/* Chart */
+.chart-card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin-top:14px; }
+.chart-legend { display:flex; gap:18px; font-size:12px; margin-bottom:10px; }
+.chart-legend span { display:inline-flex; align-items:center; gap:6px; }
+.chart-legend i { width:12px; height:12px; border-radius:3px; display:inline-block; }
+footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic; margin-top:36px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cover">
+    <div class="kicker">The Google Maps Fix</div>
+    <h1>SEO Printable Companion Bundle</h1>
+    <hr class="rule">
+    <p class="sub">An offline-friendly operational bundle to help you systematically claim, audit, and dominate your local visibility — build trust signals, organize outreach, and track your progress month over month.</p>
+  </div>
+
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div>
+      <h2 class="sec-title">The 50 High-Authority Citation Matrix</h2>
+      <p class="sec-sub">Claim your listing on the highest-DA directories first. Check each one off as you go.</p>
+    </div>
+  </div>
+
+  <div class="why">
+    <div class="why-label">What is Domain Authority (DA)?</div>
+    A standard score (1–100) predicting how much search engines trust a site — near 100 is massive trust (Google, Facebook), near 10 is a small, unknown site. Google cross-checks your Name, Address, and Phone (NAP) across the web — listing on high-DA sites creates a trust rub-off effect for your profile. <b>Citation Integrity Rule:</b> match your NAP letter-for-letter across every submission — even "Street" vs. "St." can dilute your ranking signals.
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="citationFill"></div></div>
+    <div class="progress-label" id="citationLabel">0 of 50 claimed</div>
+  </div>
+
+  <div class="table-scroll">
+  <table class="reftable" id="citationTable">
+    <thead><tr><th class="center" style="width:40px;">Claimed</th><th>Platform</th><th class="center" style="width:60px;">DA</th><th>Portal Link</th></tr></thead>
+    <tbody id="citationBody"></tbody>
+  </table>
+  </div>
+
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div>
+      <h2 class="sec-title">3-Part Automated Review Outreach Funnel</h2>
+      <p class="sec-sub">Deploy after every positive customer interaction to collect steady 5-star reviews.</p>
+    </div>
+  </div>
+
+  <div class="touchpoint">
+    <div class="touchpoint-h">Touchpoint 1: Peak Delight (Invoice Delivery)</div>
+    <div class="touchpoint-meta"><b>Channel:</b> SMS / Text Message</div>
+    <div class="script-box" data-copy>Hi [Customer Name]! Thanks so much for choosing [Business Name] today. If you have 30 seconds, would you mind leaving us a quick Google review? It helps our local team immensely: [Your Link]<button class="copy-btn">Copy</button></div>
+  </div>
+  <div class="touchpoint">
+    <div class="touchpoint-h">Touchpoint 2: The Gentle Nudge (48 Hours Later)</div>
+    <div class="touchpoint-meta"><b>Channel:</b> Email or SMS Follow-Up</div>
+    <div class="script-box" data-copy>Hey [Name], just checking back in to make sure everything went perfectly with your service! If you still have a brief moment, here is that direct review link: [Your Link] — no worries if you're busy!<button class="copy-btn">Copy</button></div>
+  </div>
+  <div class="touchpoint">
+    <div class="touchpoint-h">Touchpoint 3: The Value Check-In (7 Days Later)</div>
+    <div class="touchpoint-meta"><b>Channel:</b> Email Campaign</div>
+    <div class="script-box" data-copy>Hi [Name], we wanted to check back in and make sure you're still completely happy with our work. Our local team thrives on feedback. If you have a moment, we'd appreciate your honest review: [Your Link]<button class="copy-btn">Copy</button></div>
+  </div>
+
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div>
+      <h2 class="sec-title">Review Outreach Log</h2>
+      <p class="sec-sub">Track every review ask so nothing falls through the cracks.</p>
+    </div>
+  </div>
+  <div class="table-scroll">
+  <table class="tracker" id="table-ask">
+    <thead><tr><th>Customer Name</th><th>Date Asked</th><th>Method</th><th>Review Left?</th><th>Followed Up?</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+  <button class="add-row-btn" data-add="table-ask">+ Add Row</button>
+
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div>
+      <h2 class="sec-title">Weekly Maintenance Habits</h2>
+      <p class="sec-sub">20 minutes a week keeps your listing active in Google's eyes.</p>
+    </div>
+  </div>
+  <div class="table-scroll">
+  <table class="tracker" id="table-weekly">
+    <thead><tr><th>Week Of</th><th>Photo Posted?</th><th>Review Responded?</th><th>Post Made?</th><th>Weekly Focus / Notes</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+  <button class="add-row-btn" data-add="table-weekly">+ Add Row</button>
+
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <div>
+      <h2 class="sec-title">Monthly Performance Log</h2>
+      <p class="sec-sub">Track your ranking for two keyword terms over time — feeds the chart below.</p>
+    </div>
+  </div>
+  <div class="table-scroll">
+  <table class="tracker" id="table-rank">
+    <thead><tr><th>Month</th><th>Keyword Term 1</th><th>Rank #</th><th>Keyword Term 2</th><th>Rank #</th><th>Notes / Strategy</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+  <button class="add-row-btn" data-add="table-rank">+ Add Row</button>
+
+  <div class="chart-card">
+    <div class="chart-legend">
+      <span><i style="background:var(--teal)"></i> Keyword Term 1</span>
+      <span><i style="background:var(--coral)"></i> Keyword Term 2</span>
+    </div>
+    <svg id="rankChart" viewBox="0 0 640 220" style="width:100%; height:auto;"></svg>
+    <p class="note">Fill in the Monthly Performance Log above (month + rank for each term) — this chart redraws automatically. Rank 1–3 is the "Target Zone," highlighted below.</p>
+  </div>
+
+  <footer>The Google Maps Fix — SEO Printable Companion</footer>
+</div>
+
+<script>
+(function(){
+  var STORAGE_KEY = 'gmf-seo-companion';
+
+  function safeGet(){ try{ return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }catch(e){ return {}; } }
+  function safeSet(s){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }catch(e){} }
+  var state = safeGet();
+  if (!state.citations) state.citations = {};
+  if (!state.tables) state.tables = {};
+
+  /* ---- Citation Matrix ---- */
+  var citations = [
+    ["Google Business",100,"business.google.com"],["ShowMeLocal",68,"showmelocal.com"],
+    ["Yelp for Business",94,"biz.yelp.com"],["Insider Pages",70,"insiderpages.com"],
+    ["Apple Connect",100,"businessconnect.apple.com"],["Kudzu Listings",66,"kudzu.com"],
+    ["Angi for Business",91,"angi.com/pro"],["Spoke Directory",68,"spoke.com"],
+    ["Bing Places",94,"bingplaces.com"],["Tupalo",64,"tupalo.com"],
+    ["Thumbtack Pro",88,"thumbtack.com"],["Cylex USA",71,"cylex-usa.com"],
+    ["Facebook Pages",96,"facebook.com/business"],["Yellowee Profile",62,"yellowee.com"],
+    ["Nextdoor Biz",87,"business.nextdoor.com"],["US-Info Profile",63,"us-info.com"],
+    ["Foursquare Biz",92,"business.foursquare.com"],["LocalStack",60,"localstack.com"],
+    ["Houzz Pro",89,"houzz.com/pro"],["ExpressUpdate",58,"expressupdate.com"],
+    ["YellowPages",86,"market.yellowpages.com"],["CitySquares",64,"citysquares.com"],
+    ["TripAdvisor Biz",93,"tripadvisor.com/owners"],["Localpages",61,"localpages.com"],
+    ["BBB Directory",92,"bbb.org/get-listed"],["DataAxle Profile",70,"data-axle.com"],
+    ["Manta Profile",82,"manta.com"],["BizJournals",88,"bizjournals.com"],
+    ["MerchantCircle",74,"merchantcircle.com"],["YellowBot Profile",67,"yellowbot.com"],
+    ["Chamber of Commerce",82,"chamberofcommerce.com"],["SalesSpider",69,"salesspider.com"],
+    ["Superpages",80,"superpages.com"],["ZoomInfo Profiles",88,"zoominfo.com"],
+    ["City-Data Profile",81,"city-data.com"],["Neustar Biz",65,"neustar.biz"],
+    ["Local.com Profile",77,"local.com"],["InfoUSA Listings",72,"infousa.com"],
+    ["DexKnows",76,"dexknows.com"],["Yext Sync",85,"yext.com"],
+    ["EZ Local",70,"ezlocal.com"],["Whitepages",86,"whitepages.com"],
+    ["Hotfrog",75,"hotfrog.com"],["Locallisting",52,"locallistings.com"],
+    ["Citysearch",78,"citysearch.com"],["B2B Yellowpages",64,"b2byellowpages.com"],
+    ["Neustar Localeze",65,"neustarlocaleze.biz"],["Brownbook",72,"brownbook.net"],
+    ["MapQuest",89,"mapquest.com"],["FindUsLocal",61,"finduslocal.com"]
+  ];
+  var body = document.getElementById('citationBody');
+  citations.forEach(function(c, i){
+    var id = 'cite-' + i;
+    var tr = document.createElement('tr');
+    if (state.citations[id]) tr.classList.add('claimed');
+    tr.innerHTML =
+      '<td class="center"><input type="checkbox" id="' + id + '"' + (state.citations[id] ? ' checked' : '') + '></td>' +
+      '<td>' + c[0] + '</td>' +
+      '<td class="center">' + c[1] + '</td>' +
+      '<td><a href="https://' + c[2] + '" target="_blank" rel="noopener">' + c[2] + '</a></td>';
+    body.appendChild(tr);
+    tr.querySelector('input').addEventListener('change', function(e){
+      state.citations[id] = e.target.checked;
+      tr.classList.toggle('claimed', e.target.checked);
+      safeSet(state);
+      updateCitationProgress();
+    });
+  });
+  function updateCitationProgress(){
+    var done = Object.keys(state.citations).filter(function(k){ return state.citations[k]; }).length;
+    var pct = Math.round((done/50)*100);
+    document.getElementById('citationFill').style.width = pct + '%';
+    document.getElementById('citationLabel').textContent = done + ' of 50 claimed';
+  }
+  updateCitationProgress();
+
+  /* ---- Copy buttons ---- */
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var box = btn.closest('[data-copy]');
+      var text = box.textContent.replace('Copy', '').trim();
+      var done = function(){
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+      } else { fallbackCopy(text); done(); }
+    });
+  });
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  /* ---- Trackers ---- */
+  var tableSpecs = {
+    'table-ask': { cols: ['text','date','text','yn','yn'] },
+    'table-weekly': { cols: ['date','yn','yn','yn','text'] },
+    'table-rank': { cols: ['text','text','number','text','number','text'] }
+  };
+
+  function makeCell(type, value){
+    var td = document.createElement('td');
+    if (type === 'yn') {
+      var sel = document.createElement('select');
+      ['','Y','N'].forEach(function(v){
+        var opt = document.createElement('option'); opt.value = v; opt.textContent = v || '—';
+        sel.appendChild(opt);
+      });
+      sel.value = value || '';
+      td.appendChild(sel);
+      return { td: td, el: sel };
+    }
+    var input = document.createElement('input');
+    input.type = (type === 'number') ? 'number' : (type === 'date' ? 'date' : 'text');
+    if (type === 'number') { input.min = 1; input.max = 200; }
+    input.value = value || '';
+    td.appendChild(input);
+    return { td: td, el: input };
+  }
+
+  function addRow(tableId, rowData){
+    var spec = tableSpecs[tableId];
+    var tbody = document.querySelector('#' + tableId + ' tbody');
+    var tr = document.createElement('tr');
+    var els = [];
+    spec.cols.forEach(function(type, i){
+      var cell = makeCell(type, rowData ? rowData[i] : '');
+      tr.appendChild(cell.td);
+      els.push(cell.el);
+      cell.el.addEventListener('input', saveTable(tableId));
+      cell.el.addEventListener('change', saveTable(tableId));
+    });
+    tbody.appendChild(tr);
+    if (tableId === 'table-rank') redrawChart();
+  }
+
+  function saveTable(tableId){
+    return function(){
+      var spec = tableSpecs[tableId];
+      var rows = [];
+      document.querySelectorAll('#' + tableId + ' tbody tr').forEach(function(tr){
+        var vals = [];
+        tr.querySelectorAll('input,select').forEach(function(el){ vals.push(el.value); });
+        rows.push(vals);
+      });
+      state.tables[tableId] = rows;
+      safeSet(state);
+      if (tableId === 'table-rank') redrawChart();
+    };
+  }
+
+  Object.keys(tableSpecs).forEach(function(tableId){
+    var saved = state.tables[tableId];
+    if (saved && saved.length) {
+      saved.forEach(function(row){ addRow(tableId, row); });
+    } else {
+      addRow(tableId);
+    }
+  });
+
+  document.querySelectorAll('[data-add]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      addRow(btn.getAttribute('data-add'));
+    });
+  });
+
+  /* ---- Ranking chart ---- */
+  function rankY(rank, h, top, bottom){
+    var r = Math.max(1, Math.min(100, Number(rank) || 100));
+    var scale = r <= 20 ? (r / 20) * 0.7 : 0.7 + ((r - 20) / 80) * 0.3;
+    return top + scale * (bottom - top);
+  }
+
+  function redrawChart(){
+    var svg = document.getElementById('rankChart');
+    var w = 640, h = 220, padL = 40, padR = 16, padT = 16, padB = 30;
+    var top = padT, bottom = h - padB;
+    var rows = state.tables['table-rank'] || [];
+    var pts = rows.filter(function(r){ return r[0]; });
+    var innerW = w - padL - padR;
+    var step = pts.length > 1 ? innerW / (pts.length - 1) : 0;
+
+    var svgns = 'http://www.w3.org/2000/svg';
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    var targetTop = rankY(1, h, top, bottom);
+    var targetBottom = rankY(3, h, top, bottom);
+    var zone = document.createElementNS(svgns, 'rect');
+    zone.setAttribute('x', padL); zone.setAttribute('y', targetTop);
+    zone.setAttribute('width', innerW); zone.setAttribute('height', targetBottom - targetTop);
+    zone.setAttribute('fill', '#5B8266'); zone.setAttribute('opacity', '0.12');
+    svg.appendChild(zone);
+
+    [1,3,10,20,'20+'].forEach(function(r, i){
+      var y = rankY(r === '20+' ? 100 : r, h, top, bottom);
+      var line = document.createElementNS(svgns, 'line');
+      line.setAttribute('x1', padL); line.setAttribute('x2', w - padR);
+      line.setAttribute('y1', y); line.setAttribute('y2', y);
+      line.setAttribute('stroke', '#E4E7EB'); line.setAttribute('stroke-width', '1');
+      svg.appendChild(line);
+      var label = document.createElementNS(svgns, 'text');
+      label.setAttribute('x', 4); label.setAttribute('y', y + 4);
+      label.setAttribute('font-size', '10'); label.setAttribute('fill', '#5B6472');
+      label.textContent = 'Rank ' + r;
+      svg.appendChild(label);
+    });
+
+    function drawLine(idx, color){
+      if (pts.length < 1) return;
+      var d = '';
+      pts.forEach(function(r, i){
+        var x = padL + i * step;
+        var y = rankY(r[idx], h, top, bottom);
+        d += (i === 0 ? 'M' : 'L') + x + ',' + y + ' ';
+      });
+      var path = document.createElementNS(svgns, 'path');
+      path.setAttribute('d', d.trim());
+      path.setAttribute('fill', 'none'); path.setAttribute('stroke', color);
+      path.setAttribute('stroke-width', '2.5'); path.setAttribute('stroke-linecap', 'round');
+      svg.appendChild(path);
+      pts.forEach(function(r, i){
+        var x = padL + i * step;
+        var y = rankY(r[idx], h, top, bottom);
+        var dot = document.createElementNS(svgns, 'circle');
+        dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.setAttribute('r', 4);
+        dot.setAttribute('fill', color);
+        svg.appendChild(dot);
+        var lbl = document.createElementNS(svgns, 'text');
+        lbl.setAttribute('x', x); lbl.setAttribute('y', h - 8);
+        lbl.setAttribute('font-size', '9'); lbl.setAttribute('fill', '#5B6472');
+        lbl.setAttribute('text-anchor', 'middle');
+        lbl.textContent = r[0];
+        svg.appendChild(lbl);
+      });
+    }
+    drawLine(2, '#3E5C76');
+    drawLine(4, '#C08A2E');
+  }
+  redrawChart();
+})();
+</script>
+</body>
+</html>
