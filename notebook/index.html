@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Google Maps Fix — All Files</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;700&display=swap');
+:root {
+    --teal:#3E5C76; --teal-light:#E8EEF2; --coral:#C08A2E; --coral-light:#F5EBD9;
+    --cream:#FAFAF9; --dark:#1F2530; --gray:#5B6472; --line:#E4E7EB; --sage:#5B8266;
+    --sans:'Inter','Helvetica Neue',Arial,sans-serif; --serif:'Fraunces',Georgia,serif;
+}
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; background:var(--cream); color:var(--dark); font-family:var(--sans); }
+.shell { display:flex; flex-direction:column; height:100%; }
+
+header { padding:18px 24px 14px; border-bottom:1px solid var(--line); background:#fff; }
+header .kicker { font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--coral); text-transform:uppercase; margin-bottom:4px; }
+header h1 { font-family:var(--serif); font-size:20px; color:var(--teal); margin:0; }
+
+.tabs { display:flex; gap:6px; padding:12px 20px 0; background:#fff; flex-wrap:wrap; border-bottom:1px solid var(--line); }
+.tab {
+    background:var(--cream); border:1px solid var(--line); border-bottom:none;
+    padding:9px 14px; border-radius:8px 8px 0 0; cursor:pointer;
+    font-size:12.5px; font-weight:700; color:var(--gray); white-space:nowrap;
+    display:flex; align-items:center; gap:7px;
+}
+.tab .tier { font-size:9.5px; font-weight:700; padding:2px 6px; border-radius:10px; letter-spacing:.03em; }
+.tab .tier.t1 { background:var(--teal-light); color:var(--teal); }
+.tab .tier.t2 { background:var(--coral-light); color:var(--coral); }
+.tab .tier.t3 { background:#E7EFE9; color:var(--sage); }
+.tab.active { background:var(--cream); color:var(--teal); border-color:var(--line); position:relative; top:1px; }
+.tab.active { background:var(--cream); }
+.tab:not(.active) { background:#fff; }
+.tab:hover { color:var(--teal); }
+
+.frame-wrap { flex:1; background:var(--cream); position:relative; }
+iframe { width:100%; height:100%; border:none; display:none; background:#fff; }
+iframe.active { display:block; }
+
+.filebar {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 20px; background:var(--teal-light); font-size:11.5px; color:var(--teal);
+}
+.filebar code { background:#fff; padding:2px 7px; border-radius:4px; border:1px solid var(--line); }
+.filebar a { color:var(--coral); font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="kicker">The Google Maps Fix — Internal Review</div>
+    <h1>All Product Files, One View</h1>
+  </header>
+
+  <div class="tabs" id="tabs"></div>
+  <div class="filebar">
+    <span>Viewing: <code id="currentFile"></code></span>
+    <a id="openDirect" href="#" target="_blank">Open this file directly &rarr;</a>
+  </div>
+  <div class="frame-wrap" id="frameWrap"></div>
+</div>
+
+<script>
+(function(){
+  var files = [
+    { label: "Tier 1 Checklist", tier: "t1", tierLabel: "$9", src: "the-15-minute-profile-audit-checklist.html" },
+    { label: "Full Kit (v20)", tier: "t2", tierLabel: "$27", src: "interactive-playbook-v20-launch-ready.html" },
+    { label: "GBP Blueprint", tier: "t3", tierLabel: "bonus", src: "gbp-category-geo-keyword-blueprint.html" },
+    { label: "Quick-Start Guide", tier: "t3", tierLabel: "bonus", src: "no-tech-quick-start-guide.html" },
+    { label: "Outreach Swipe Kit", tier: "t3", tierLabel: "bonus", src: "revised-swipe-kit.html" },
+    { label: "SEO Companion", tier: "t3", tierLabel: "$37", src: "seo-printable-companion.html" }
+  ];
+
+  var tabsEl = document.getElementById('tabs');
+  var wrapEl = document.getElementById('frameWrap');
+  var currentFileEl = document.getElementById('currentFile');
+  var openDirectEl = document.getElementById('openDirect');
+
+  files.forEach(function(f, i){
+    var tab = document.createElement('div');
+    tab.className = 'tab' + (i === 0 ? ' active' : '');
+    tab.innerHTML = '<span class="tier ' + f.tier + '">' + f.tierLabel + '</span>' + f.label;
+    tab.addEventListener('click', function(){ show(i); });
+    tabsEl.appendChild(tab);
+
+    var frame = document.createElement('iframe');
+    frame.src = f.src;
+    frame.className = i === 0 ? 'active' : '';
+    wrapEl.appendChild(frame);
+  });
+
+  function show(i){
+    document.querySelectorAll('.tab').forEach(function(t, ti){ t.classList.toggle('active', ti === i); });
+    document.querySelectorAll('iframe').forEach(function(fr, fi){ fr.classList.toggle('active', fi === i); });
+    currentFileEl.textContent = files[i].src;
+    openDirectEl.href = files[i].src;
+  }
+  show(0);
+})();
+</script>
+</body>
+</html>
