@@ -21,27 +21,16 @@
 
 ---
 
-## 2. Target Audience & Customer Personas
+## 2. Target Audience & Customer Persona
 
-Two distinct personas emerge across the documents — but the source material is **not currently built or priced as a two-persona product**. This is a key structural finding (see §4 and TODO below).
+**Single persona: the DIY Local Business Owner.** This product is sold directly to the business owner to fix and grow their own listing — there is no agency/reseller customer and no resale model. One document (`outreach-sales-swipe-kit-launch-ready.pdf`) contains agency-facing resale language ("high-margin digital marketing agencies and small business consultants," a "Confidential – Commercial License" mark, a productized "30-Minute Local Visibility Fix" resale offer) — per direction, that framing is **out of scope** and should be treated as leftover/misdirected content in that one PDF, not a second product line. See §3 for the fix to that file.
 
-### Persona A — DIY Local Business Owner (primary, dominant persona)
 - Solo/family-run local business, 1–15 employees, no marketing staff, no agency budget.
 - Revenue roughly $150K–$1.5M/yr. Fix budget: $0–$50 one-time, not a monthly retainer.
 - Verticals: trades, food, personal-care, retail — plumber, lawn care, hair salon, boutique, diner, auto shop (playbook's Primary Category Cheat Sheet expands this to 10 named verticals; the geo-keyword blueprint PDF covers 55 niches).
 - Explicitly non-technical: "You don't need a computer science degree" (no-tech quick-start guide); "If you can check a box and type into a Google Business Profile, you can do this" (sales-page FAQ).
 - Identity-based framing acknowledged in-product: family-owned, small business, women-led, LGBTQ+-owned, veteran-led.
 - Accommodates both storefront businesses and Service-Area Businesses (SAB — no public storefront, e.g. mobile trades).
-
-### Persona B — Agency / Consultant Reseller (secondary, found only in one document)
-- Explicitly named in `outreach-sales-swipe-kit-launch-ready.pdf`: "high-margin digital marketing agencies and small business consultants," plus freelancers.
-- Buys the kit's content to **resell as a done-for-you service** to their own local-business clients, not to fix their own listing.
-- Given a distinct productized offer to sell: **"30-Minute Local Visibility Fix"** (profile audit + top-50 citation matching + 3-part review automation + custom rankings dashboard), with a case-study proof point ("visibility rose by 140% in 14 days, double the phone inquiries") and scarcity copy ("booking exactly three local clients... next week").
-- That PDF is marked "Confidential – Commercial License" on pages 3–6, implying resale/commercial-use rights are part of its value — but no license terms, price, or tier this maps to is defined anywhere else.
-
-**Fixed (high priority):** the swipe kit's "Confidential – Commercial License" currently implies unlimited resale to unlimited clients for a single one-time purchase — an agency buys once, resells forever, no cap. That makes Tier 3 ($29, see §4) worth far more to an agency than to the DIY owner it's priced for. Resale rights are now capped: **Commercial License = resale to up to 3 clients per license.** Agencies reselling to more than 3 clients must buy an additional license. This is a pricing decision, not something derivable from the source files — see §4 for the license-tier price.
-
-[TODO: Need Decision] — The swipe-kit PDF itself (`outreach-sales-swipe-kit-launch-ready.pdf`) still states the license with no cap in its own text and needs a copy rewrite to state the 3-client limit explicitly.
 
 ---
 
@@ -78,10 +67,12 @@ The flagship deliverable is `interactive-playbook-v20-launch-ready.html` — a s
 |---|---|---|
 | `gbp-category-geo-keyword-blueprint` | 4 | 55-niche category + geo-keyword reference table |
 | `no-tech-quick-start-guide` | 1 | 3-habit weekly maintenance one-pager |
-| `outreach-sales-swipe-kit` | 6 | Agency-facing resale scripts + sales funnel (Persona B) |
+| `outreach-sales-swipe-kit` | 6 | Review-request + outreach scripts. Currently written with agency-resale framing — needs rewrite to owner-facing copy (see below) |
 | `seo-printable-companion` (v8) | 8 | Printable 50-citation directory + blank fillable logs |
 
-The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In") is duplicated near-verbatim between the interactive tool, the SEO Printable Companion, and the (agency-facing) Outreach Swipe Kit — confirmed shared content module reused across three deliverables.
+The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In") is duplicated near-verbatim between the interactive tool, the SEO Printable Companion, and the Outreach Swipe Kit — confirmed shared content module reused across three deliverables.
+
+**Fix:** `outreach-sales-swipe-kit-launch-ready.pdf` needs a rewrite. There is no agency customer for this product — it's sold directly to the business owner. Strip the agency/reseller sales-funnel content (the "30-Minute Local Visibility Fix" productized resale offer, the "Confidential – Commercial License" mark, the cold-email sequence for selling to other businesses) and keep only what's owner-facing: the review-outreach scripts and social-post swipe copy, matching the tone already used in the SEO Printable Companion's version of the same content.
 
 ---
 
@@ -101,16 +92,6 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 
 Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to the same Gumroad bundle without restating a price — treat these as pointing at the $29 Tier 3 above, not a separate SKU.
 
-### Agency Commercial License (Persona B, separate add-on — fixed per critique)
-
-The Outreach Sales Swipe Kit's resale rights are **not included** in Tiers 1–3 and are **not unlimited**. New add-on SKU:
-
-| Add-on | Price | Grants | Cap |
-|---|---|---|---|
-| Agency Commercial License | **$97** | Resale of the Outreach Sales Swipe Kit content (scripts, funnel, "30-Minute Local Visibility Fix" case-study copy) as a done-for-you service | Up to **3 client engagements**; additional licenses required beyond that |
-
-[TODO: Need Decision] — $97 is a placeholder anchor (roughly what a single resold client engagement would earn an agency in one project, making the license pay for itself on the first resale). Confirm actual price before launch.
-
 ### Deliverable matrix (as currently supportable by existing files)
 
 | | Tier 1 — $9 | Tier 2 — $27 | Tier 3 — $29 |
@@ -122,7 +103,7 @@ The Outreach Sales Swipe Kit's resale rights are **not included** in Tiers 1–3
 | GBP Category & Geo-Keyword Blueprint (55 niches) | — | [TODO: Need Decision] | [TODO: Need Decision] |
 | No-Tech Quick-Start Guide | — | [TODO: Need Decision] | [TODO: Need Decision] |
 | SEO Printable Companion (50-citation matrix + fillable logs) | — | [TODO: Need Decision] | [TODO: Need Decision] |
-| Outreach Sales Swipe Kit (agency resale) | — | — | — (sold separately, see Agency Commercial License above) |
+| Outreach Sales Swipe Kit (owner-facing, rewritten) | — | [TODO: Need Decision] | [TODO: Need Decision] |
 | Premium Copywriting Swipe File + 50-Citation Rolodex | — | — | ✓ |
 
 [TODO: Need Decision] — None of the four companion PDFs are explicitly assigned to a tier anywhere in the source docs. The business plan's own bonus idea — "add a '50 business types' category cheat sheet pack as a bonus PDF to raise perceived value at $27+" — implies the Geo-Keyword Blueprint PDF was meant to be a Tier 2/3 bonus, but this is never confirmed as final.
