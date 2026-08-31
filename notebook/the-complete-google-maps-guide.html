@@ -2124,7 +2124,7 @@
         if (!code) return false;
         const state = collectState();
         try {
-            const res = await fetch('https://itml37-gmfsyncbroker.express.val.run/' + code, { 
+            const res = await fetch('https://gmf-broker.val.run/' + code, { 
                 method: 'PUT', 
                 body: JSON.stringify(state),
                 headers: { 'Content-Type': 'application/json' }
@@ -2141,7 +2141,7 @@
         const code = getPairCode();
         if (!code) return false;
         try {
-            const res = await fetch('https://itml37-gmfsyncbroker.express.val.run/' + code);
+            const res = await fetch('https://gmf-broker.val.run/' + code);
             if (res.ok) {
                 const text = await res.text();
                 applyState(JSON.parse(text));
