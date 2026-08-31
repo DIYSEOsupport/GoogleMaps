@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 15-Minute Profile Audit Checklist — The Google Maps Fix</title>
+<style>
+  :root{
+    --teal:#3E5C76; --coral:#C08A2E; --cream:#FAFAF9; --dark:#1F2530; --gray:#5B6472; --line:#E4E7EB;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--cream); color:var(--dark);
+    font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:720px; margin:0 auto; padding:32px 20px 80px;}
+  h1{font-size:26px; margin:0 0 6px;}
+  .kicker{color:var(--coral); font-weight:700; font-size:12px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px;}
+  .sub{color:var(--gray); margin:0 0 24px; font-size:15px;}
+  .why{background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:22px;}
+  .why-label{font-weight:700; font-size:13px; color:var(--teal); margin-bottom:8px;}
+  .why ul{margin:0; padding-left:18px; font-size:13.5px;}
+  .checklist{list-style:none; margin:0 0 22px; padding:0;}
+  .checklist li{
+    display:flex; gap:10px; align-items:flex-start;
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:12px 14px; margin-bottom:8px; font-size:14px;
+  }
+  .checklist input[type=checkbox]{margin-top:3px; width:17px; height:17px; flex-shrink:0;}
+  .checklist label{cursor:pointer;}
+  .callout{
+    background:#FBF3E4; border-left:4px solid var(--coral); border-radius:6px;
+    padding:12px 14px; font-size:13.5px; margin-bottom:24px;
+  }
+  .subhead{font-weight:700; font-size:16px; margin:28px 0 8px; color:var(--teal);}
+  table.reftable{width:100%; border-collapse:collapse; margin-bottom:8px; font-size:13px;}
+  table.reftable th, table.reftable td{border:1px solid var(--line); padding:8px 10px; text-align:left;}
+  table.reftable th{background:#fff; color:var(--teal);}
+  .note{font-size:12.5px; color:var(--gray); margin:6px 0 0;}
+  .progress-wrap{position:sticky; top:0; background:var(--cream); padding:10px 0; z-index:10; border-bottom:1px solid var(--line); margin-bottom:20px;}
+  .progress-bar{height:8px; background:var(--line); border-radius:5px; overflow:hidden;}
+  .progress-fill{height:100%; background:var(--coral); width:0%; transition:width .2s;}
+  .progress-label{font-size:12px; color:var(--gray); margin-top:4px;}
+  .upsell-box{
+    background:#fff; border:1.5px dashed var(--coral); border-radius:10px;
+    padding:18px; margin-top:32px; font-size:13.5px;
+  }
+  .upsell-badge{
+    display:inline-block; background:var(--coral); color:#fff; font-size:10.5px; font-weight:700;
+    letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:4px; margin-bottom:8px;
+  }
+  .upsell-box a{color:var(--coral); font-weight:700; text-decoration:none; border-bottom:1.4px solid var(--coral);}
+  footer{text-align:center; color:var(--gray); font-size:12px; margin-top:40px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">The Google Maps Fix — Checklist Edition</div>
+  <h1>The 15-Minute Profile Audit Checklist</h1>
+  <p class="sub">The single highest-impact section of The Google Maps Fix — fix the core listing gaps that make or break your local ranking. Checkboxes save to this browser as you go.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-label" id="progress-label">0 of 24 items complete</div>
+  </div>
+
+  <div class="why">
+    <div class="why-label">Google's 3 Ranking Pillars (In Plain English)</div>
+    <ul>
+      <li><b>Relevance:</b> How closely your business details match what a customer typed into Google search.</li>
+      <li><b>Distance:</b> How close your verified location is to where the searching customer is standing.</li>
+      <li><b>Prominence:</b> How active, well-known, and trusted your business is (measured by reviews, photos, updates, and listings across the web).</li>
+    </ul>
+    <p style="margin-top:10px; font-size:13px;">Access your official listing dashboard here: <a href="https://business.google.com" target="_blank" rel="noopener">business.google.com</a></p>
+  </div>
+
+  <ul class="checklist" data-group="audit">
+    <li><input type="checkbox" id="audit-verified"><label for="audit-verified"><b>Google Account Verified:</b> Your Google Business Profile dashboard shows a green "Verified" badge (not "Suspended" or "Pending") — nothing below matters until this is true.</label></li>
+    <li><input type="checkbox" id="audit-name"><label for="audit-name"><b>Exact Business Name:</b> Matches your storefront or vehicle signage exactly (never stuff keywords like "Joe's Bakery Best Fresh Donuts" — it can trigger account suspension)</label></li>
+    <li><input type="checkbox" id="audit-primary"><label for="audit-primary"><b>Primary Category:</b> Set to your highest-volume core service (the single biggest ranking factor Google uses)</label></li>
+    <li><input type="checkbox" id="audit-secondary"><label for="audit-secondary"><b>Secondary Categories:</b> 2–3 relevant secondary services added so you show up for related searches</label></li>
+    <li><input type="checkbox" id="audit-hours"><label for="audit-hours"><b>Operating Hours:</b> 100% accurate standard hours, plus special holiday hours pre-scheduled</label></li>
+    <li><input type="checkbox" id="audit-pin"><label for="audit-pin"><b>Entrance Map Pin:</b> Placed precisely at your customer entrance door (not the parking lot entrance)</label></li>
+    <li><input type="checkbox" id="audit-contact"><label for="audit-contact"><b>Direct Contact:</b> Local telephone number and secure HTTPS website link verified</label></li>
+    <li><input type="checkbox" id="audit-photos"><label for="audit-photos"><b>Photo Minimum:</b> At least 10 authentic, clear photos uploaded (storefront, interior, staff, work in progress)</label></li>
+    <li><input type="checkbox" id="audit-action"><label for="audit-action"><b>Direct Action Link:</b> Booking, appointment, quote request, or menu URL added</label></li>
+    <li><input type="checkbox" id="audit-desc"><label for="audit-desc"><b>Profile Description:</b> 750-character bio written in natural language highlighting what you do, who you serve, and your local neighborhood</label></li>
+    <li><input type="checkbox" id="audit-attrs"><label for="audit-attrs"><b>Business Attributes:</b> Open the full Attributes menu in your dashboard and check every one that's true (family-owned, small business, women-led, LGBTQ+-owned, veteran-led, wheelchair accessibility, payment options) — these are filterable search criteria, so each one you skip is a search you're invisible for</label></li>
+    <li><input type="checkbox" id="audit-msg"><label for="audit-msg"><b>Turn On Messaging:</b> Enable Direct Messaging and set an auto-reply like: "Thanks for reaching out! We reply within a few hours during business days — for anything urgent, call us at [phone]." Only enable if you check it daily — an unanswered inbox looks worse than no inbox at all.</label></li>
+    <li><input type="checkbox" id="audit-qanda"><label for="audit-qanda"><b>Seeded Q&amp;A:</b> Posted 2–3 common customer questions with answers on your profile's Q&amp;A tab — an empty tab leaves the door open for a competitor or troll to seed it for you</label></li>
+    <li><input type="checkbox" id="audit-catalog"><label for="audit-catalog"><b>Products/Services Listed:</b> Added at least 3 services or products with photos and prices to the catalog tab</label></li>
+  </ul>
+
+  <div class="callout">Quick Win: Items 1, 2, and 4 are the most common reasons customers bounce off a profile. If you only have 15 minutes today, start there.</div>
+
+  <div class="subhead">Primary Category Cheat Sheet</div>
+  <p style="font-size:13.5px;">Your primary category carries the heaviest ranking weight in Google's local algorithm. Choose the closest high-intent match:</p>
+  <table class="reftable">
+    <thead><tr><th>Business Type</th><th>Recommended Primary Category</th><th>High-Impact Secondary Categories</th></tr></thead>
+    <tbody>
+      <tr><td>Lawn care &amp; Landscaping</td><td>Lawn care service</td><td>Landscaper, Tree service, Gardener</td></tr>
+      <tr><td>Handyman &amp; Home Repairs</td><td>Handyman</td><td>General contractor, Remodeler, Repair service</td></tr>
+      <tr><td>Auto Repair &amp; Mechanics</td><td>Auto repair shop</td><td>Mechanic, Brake shop, Oil change service</td></tr>
+      <tr><td>House Cleaning / Maid</td><td>House cleaning service</td><td>Commercial cleaning service, Maid service</td></tr>
+      <tr><td>Restaurant / Cafe / Diner</td><td>Restaurant</td><td>[Cuisine Type] restaurant, Family restaurant, Cafe</td></tr>
+      <tr><td>Plumbing Services</td><td>Plumber</td><td>Drainage service, Heating contractor</td></tr>
+      <tr><td>Electrical Services</td><td>Electrician</td><td>Electrical installation service, Contractor</td></tr>
+      <tr><td>Retail Boutique / Apparel</td><td>Clothing store</td><td>Boutique, Women's clothing store, Fashion accessories</td></tr>
+      <tr><td>Handmade / Artisan Gifts</td><td>Gift shop</td><td>Craft store, Art gallery, Home goods store</td></tr>
+      <tr><td>Salon / Spa / Esthetics</td><td>Beauty salon</td><td>Hair salon, Skin care clinic, Day spa</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>Pro Tip:</b> Unsure of your primary category? Search your top local competitor on Google Maps and look at the gray category text displayed right under their business name.</p>
+
+  <div class="subhead">The 10-Photo High-Trust Shot List</div>
+  <p style="font-size:13.5px;">Upload these 10 photos using your smartphone camera — no professional photographer required:</p>
+  <ul class="checklist" data-group="shotlist">
+    <li><input type="checkbox" id="shot-street"><label for="shot-street"><b>Street View:</b> Storefront from across the street</label></li>
+    <li><input type="checkbox" id="shot-entrance"><label for="shot-entrance"><b>Entrance Close-Up:</b> Clear view of your front door and signage</label></li>
+    <li><input type="checkbox" id="shot-interior"><label for="shot-interior"><b>Interior Wide Angle:</b> Clean, inviting view from the main entryway looking in</label></li>
+    <li><input type="checkbox" id="shot-best"><label for="shot-best"><b>Best-Seller Showcase:</b> Close-up of your most popular product or finished service</label></li>
+    <li><input type="checkbox" id="shot-team"><label for="shot-team"><b>Team in Action:</b> Staff helping a customer or performing skilled work (with consent)</label></li>
+    <li><input type="checkbox" id="shot-flatlay"><label for="shot-flatlay"><b>Product/Service Flat-Lay:</b> Styled arrangement of 2–3 popular items or tools of trade</label></li>
+    <li><input type="checkbox" id="shot-pos"><label for="shot-pos"><b>Point of Sale / Front Desk:</b> Clean checkout counter or reception area</label></li>
+    <li><input type="checkbox" id="shot-arch"><label for="shot-arch"><b>Architectural / Vibe Detail:</b> Unique feature (mural, exposed brick, custom decor, branded wall)</label></li>
+    <li><input type="checkbox" id="shot-season"><label for="shot-season"><b>Current Seasonal Feature:</b> Seasonal promotion, holiday display, or seasonal menu item</label></li>
+    <li><input type="checkbox" id="shot-client"><label for="shot-client"><b>Satisfied Client:</b> Real photo of a happy customer with their purchase or completed project</label></li>
+  </ul>
+  <p class="note"><b>Service-Area Business (No Storefront)?</b> Replace storefront shots with branded work vehicles, tool setups, before/after job photos, and uniformed staff.</p>
+  <p class="note"><b>Location On:</b> Take these photos with your phone's location services turned on — geotagged photos reinforce your address to Google. Businesses with 100+ photos see far more calls, direction requests, and website clicks than the average listing (Google reports 42% more direction requests and 35% more website clicks from having photos at all).</p>
+
+  <div class="upsell-box">
+    <span class="upsell-badge">Full Kit</span>
+    <p>This checklist is Section 1 of 5. The full <b>Google Maps Fix</b> kit adds the Local Trust Signals List, the Review Snowball System, a Weekly Maintenance Tracker, and a Monthly Ranking Log with progress chart — plus everything auto-saves and exports to PDF. <a href="https://itml37.gumroad.com/l/google-maps-fix" target="_blank">Upgrade to the full kit &rarr;</a></p>
+  </div>
+
+  <footer>The Google Maps Fix — Checklist Edition</footer>
+</div>
+
+<script>
+(function(){
+  var STORAGE_KEY = 'gmf-checklist-tier1';
+  var boxes = document.querySelectorAll('.checklist input[type=checkbox]');
+
+  function safeGet(){ try{ return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }catch(e){ return {}; } }
+  function safeSet(state){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){} }
+
+  var state = safeGet();
+  boxes.forEach(function(b){ if(state[b.id]) b.checked = true; });
+
+  function updateProgress(){
+    var total = boxes.length, done = 0;
+    boxes.forEach(function(b){ if(b.checked) done++; });
+    var pct = total ? Math.round((done/total)*100) : 0;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = done + ' of ' + total + ' items complete';
+  }
+
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){
+      var s = safeGet();
+      s[b.id] = b.checked;
+      safeSet(s);
+      updateProgress();
+    });
+  });
+
+  updateProgress();
+})();
+</script>
+</body>
+</html>

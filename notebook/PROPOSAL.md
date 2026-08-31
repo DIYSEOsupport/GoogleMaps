@@ -80,25 +80,29 @@ The Review Outreach Tracker copy ("Peak Delight / Gentle Nudge / Value Check-In"
 
 ## 4. Tier Breakdown & Pricing Strategy
 
-**Resolved:** no live/human-delivered calls in this product. `business-plan.md:12` and `sales-page.html:65` both describe Tier 3 as "kit + 15-min live listing audit call" — that live-call offer is cut. Tier 3 is the $29 "Done-For-You" bundle (Premium Copywriting Swipe File + 50-Citation Rolodex) already shipped inside `interactive-playbook-v20-launch-ready.html`, since it needs no human time and matches what's actually live on Gumroad today.
+**Resolved:** no live/human-delivered calls in this product. `business-plan.md:12` and `sales-page.html:65` both describe Tier 3 as "kit + 15-min live listing audit call" — that live-call offer is cut. Tier 3 is the $37 "Done-For-You" bundle (Premium Copywriting Swipe File + 50-Citation Rolodex) already shipped inside `interactive-playbook-v20-launch-ready.html`, since it needs no human time and matches what's actually live on Gumroad today. Priced low and kept simple per direction — no new build, no added maintenance.
 
-[TODO: Need Decision] — `business-plan.md` and `sales-page.html` still describe the $47 audit-call tier; they need a rewrite pass to replace it with the $29 Done-For-You bundle (or drop the price point / renumber to $29) so all docs agree.
+[TODO: Need Decision] — `business-plan.md` and `sales-page.html` still describe the $47 audit-call tier; they need a rewrite pass to replace it with the $37 Done-For-You bundle (or drop the price point / renumber to $37) so all docs agree.
 
 ### Tier ladder (final)
 
 | Tier | Price | Deliverable | Positioning |
 |---|---|---|---|
-| 1 | **$9** | Checklist only | Impulse buy, top-of-funnel |
+| 1 | **$9** | `the-15-minute-profile-audit-checklist.html` — Section 1 only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static build, `localStorage` autosave, no trackers/quiz/PDF export | Impulse buy, top-of-funnel |
 | 2 | **$27** | Full kit — checklist + tracker + score tool + PDF export (the interactive HTML tool) | Standalone anchor price; matches comparable Etsy digital templates ($15–$35) |
-| 3 | **$29** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery |
+| 3 | **$37** | Kit + Done-For-You bundle: Premium Copywriting Swipe File + 50-Citation Rolodex | Upsell after $27 purchase, sold in-app via Gumroad (`itml37.gumroad.com/l/local-seo-bundle`), no live/human delivery. Low, simple price bump from $27 — no new build, no ongoing maintenance |
 
-Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to the same Gumroad bundle without restating a price — treat these as pointing at the $29 Tier 3 above, not a separate SKU.
+Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to the same Gumroad bundle without restating a price — treat these as pointing at the $37 Tier 3 above, not a separate SKU.
+
+**Resolved:** Tier 1's "checklist only" had no matching artifact — `interactive-playbook-v20-launch-ready.html` is one monolithic file with no stripped-down build. Fixed by hand-authoring `the-15-minute-profile-audit-checklist.html`: Section 1 content only (Profile Audit checklist, Category Cheat Sheet, 10-Photo Shot List), static HTML with basic checkbox `localStorage` autosave, no score quiz, trackers, charts, QR/sync, or PDF export. Links to the $27 full kit as its own upgrade path.
+
+Per direction, this stays a simple, one-time build with no ongoing maintenance commitment — no formal process to keep it in sync with Section 1 of the main tool. If Section 1's content changes later, updating this file is optional, not a standing obligation.
 
 ### Deliverable matrix (as currently supportable by existing files)
 
-| | Tier 1 — $9 | Tier 2 — $27 | Tier 3 — $29 |
+| | Tier 1 — $9 | Tier 2 — $27 | Tier 3 — $37 |
 |---|---|---|---|
-| Interactive HTML checklist tool | Checklist portion only (unclear — no separate "checklist-only" file exists yet) | Full tool | Full tool |
+| Interactive HTML checklist tool | `the-15-minute-profile-audit-checklist.html` (Section 1 only — built, resolves prior gap) | Full tool | Full tool |
 | Score Your Listing quiz | — | ✓ | ✓ |
 | Weekly/Monthly trackers | — | ✓ | ✓ |
 | PDF export | — | ✓ | ✓ |
@@ -127,7 +131,7 @@ Four other in-app upsell boxes (Sections 1–4 of the interactive tool) point to
 ### Known technical issue — fixed (high priority)
 `business-plan.md` flags an explicit pre-launch blocker: an older version of the product (`the-30-minute-google-maps-fix.html`, per root `CLAUDE.md`) loads a missing `gmf-core.js` and calls `fetch('/api/sync/' + code)` for a device-pairing sync feature with **no backend to support it**. The instruction was to "strip the device-sync/pairing panel... or replace with a note 'sync coming in a future update.'"
 
-The current flagship file (`interactive-playbook-v20-launch-ready.html`) still ships a working-looking "Pair This Device" peer-to-peer sync flow (`pushToServer()`, `pullFromServer()`, `joinWithCode()`) with no confirmed backend — the same dead-backend problem, resurfaced in the new file. There is no product need for cross-device sync in a $9–$29 static checklist tool, and it contradicts the "no backend, self-contained file" delivery promise (§5, root `CLAUDE.md`, `business-plan.md`).
+The current flagship file (`interactive-playbook-v20-launch-ready.html`) still ships a working-looking "Pair This Device" peer-to-peer sync flow (`pushToServer()`, `pullFromServer()`, `joinWithCode()`) with no confirmed backend — the same dead-backend problem, resurfaced in the new file. There is no product need for cross-device sync in a $9–$37 static checklist tool, and it contradicts the "no backend, self-contained file" delivery promise (§5, root `CLAUDE.md`, `business-plan.md`).
 
 **Decision: strip the sync/pairing panel entirely** — no stub, no "coming in a future update" note. `localStorage` autosave + the "Save Editable HTML" export already cover the one real use case (moving progress to a new session), and matches `onboarding-email.txt`'s existing offline-only framing ("It works fully offline once open... Your progress auto-saves to this device") with no rewrite needed there.
 
