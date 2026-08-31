@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Package Breakdown — The Google Maps Fix</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;700&display=swap');
+:root {
+    --teal:#3E5C76; --teal-light:#E8EEF2; --coral:#C08A2E; --coral-light:#F5EBD9;
+    --cream:#FAFAF9; --dark:#1F2530; --gray:#5B6472; --line:#E4E7EB; --sage:#5B8266;
+    --sans:'Inter','Helvetica Neue',Arial,sans-serif; --serif:'Fraunces',Georgia,serif;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--cream); color:var(--dark); font-family:var(--sans); line-height:1.5; }
+.wrap { max-width:960px; margin:0 auto; padding:0 24px 80px; }
+.cover { text-align:center; padding:56px 24px 30px; }
+.kicker { font-size:12px; font-weight:700; letter-spacing:.14em; color:var(--coral); margin-bottom:16px; text-transform:uppercase; }
+.cover h1 { font-family:var(--serif); font-size:32px; color:var(--teal); margin:0 0 14px; line-height:1.15; font-weight:700; }
+.rule { width:60px; height:2px; background:var(--coral); margin:26px auto; border:none; }
+.cover p.sub { font-size:15px; color:var(--dark); max-width:560px; margin:0 auto; }
+
+.tiers { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px; }
+@media (max-width:800px) { .tiers { grid-template-columns:1fr; } }
+
+.tier-card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:22px 20px; display:flex; flex-direction:column; }
+.tier-card.t2 { border:2px solid var(--coral); position:relative; }
+.tier-card .badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:var(--coral); color:#fff; font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:3px 12px; border-radius:20px; }
+
+.tier-name { font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gray); }
+.tier-price { font-family:var(--serif); font-size:34px; color:var(--teal); font-weight:700; margin:4px 0 2px; }
+.tier-price span { font-size:14px; color:var(--gray); font-weight:400; font-family:var(--sans); }
+.tier-pitch { font-size:13px; color:var(--gray); margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--line); }
+
+.tier-card ul { list-style:none; margin:0; padding:0; flex:1; }
+.tier-card li { font-size:13.5px; padding:7px 0 7px 24px; position:relative; }
+.tier-card li::before { content:'✓'; position:absolute; left:0; color:var(--sage); font-weight:700; }
+.tier-card li.no::before { content:'–'; color:var(--line); }
+.tier-card li.no { color:#B7BEC7; }
+
+.file-tag { display:block; font-size:11px; color:var(--gray); font-style:italic; margin-top:1px; }
+
+.note { max-width:960px; margin:34px auto 0; background:var(--teal-light); border-radius:8px; padding:16px 20px; font-size:13px; color:var(--dark); }
+.note b { color:var(--teal); }
+
+footer { text-align:center; color:var(--gray); font-size:12px; font-style:italic; margin-top:36px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cover">
+    <div class="kicker">The Google Maps Fix</div>
+    <h1>What's In Each Package</h1>
+    <hr class="rule">
+    <p class="sub">One-time purchase, no subscriptions. Every tier is a self-contained file you keep — no login, no app.</p>
+  </div>
+
+  <div class="tiers">
+    <div class="tier-card">
+      <div class="tier-name">Tier 1</div>
+      <div class="tier-price">$9</div>
+      <div class="tier-pitch">The quick win — a 15-minute audit checklist to fix the basics today.</div>
+      <ul>
+        <li>Profile Audit Checklist (14 items)<span class="file-tag">the-15-minute-profile-audit-checklist.html</span></li>
+        <li>Primary Category Cheat Sheet (10 niches)</li>
+        <li>10-Photo Shot List</li>
+        <li>Autosave — pick up where you left off</li>
+        <li class="no">Score Your Listing quiz</li>
+        <li class="no">Weekly / monthly trackers</li>
+        <li class="no">PDF export</li>
+        <li class="no">Bonus reference files</li>
+      </ul>
+    </div>
+
+    <div class="tier-card t2">
+      <div class="badge">Most Popular</div>
+      <div class="tier-name">Tier 2</div>
+      <div class="tier-price">$27</div>
+      <div class="tier-pitch">The full kit — everything to fix, track, and maintain your listing.</div>
+      <ul>
+        <li>Everything in Tier 1</li>
+        <li>Full interactive playbook<span class="file-tag">interactive-playbook-v20-launch-ready.html</span></li>
+        <li>Score Your Listing quiz</li>
+        <li>Review Outreach, Weekly Maintenance &amp; Ranking Log trackers</li>
+        <li>Interactive ranking-trend chart</li>
+        <li>QR code generator for review links</li>
+        <li>Copy-to-clipboard scripts &amp; post templates</li>
+        <li>5 troubleshooting appendices</li>
+        <li>Save/export editable HTML + PDF summary</li>
+        <li class="no">Done-For-You bundle add-ons</li>
+      </ul>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-name">Tier 3</div>
+      <div class="tier-price">$37</div>
+      <div class="tier-pitch">Full kit + done-for-you extras — skip the guesswork on copy and listings.</div>
+      <ul>
+        <li>Everything in Tier 2</li>
+        <li>Premium Copywriting Swipe File</li>
+        <li>50-Citation Rolodex (directory list)</li>
+        <li>Google Business Profile Category &amp; Geo-Keyword Blueprint (55 niches)<span class="file-tag">gbp-category-geo-keyword-blueprint.html</span></li>
+        <li>No-Tech Quick-Start Guide<span class="file-tag">no-tech-quick-start-guide.html</span></li>
+        <li>SEO Printable Companion — citation matrix + 3 fillable logs<span class="file-tag">seo-printable-companion.html</span></li>
+        <li>Outreach &amp; Cross-Promotion Swipe Kit<span class="file-tag">revised-swipe-kit.html</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Note:</b> Tier 3's bonus files (Blueprint, Quick-Start Guide, SEO Companion, Swipe Kit) aren't formally assigned to a tier in the source business plan yet — grouped here under Tier 3 as the most logical fit (matches the "raise perceived value at $27+" bonus idea). Confirm before this becomes the final sales-page copy. See <code>PROPOSAL.md</code> §4 for the open TODO.
+  </div>
+
+  <footer>The Google Maps Fix — Package Breakdown</footer>
+</div>
+</body>
+</html>
