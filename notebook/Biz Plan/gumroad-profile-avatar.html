@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gumroad Profile Avatar</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, sans-serif; background:#0d1620; }
+#downloadBtn {
+  position: fixed; top: 16px; right: 16px; z-index: 10;
+  background: #C08A2E; color: #fff; border: none; font-weight: 700;
+  font-size: 14px; padding: 12px 22px; border-radius: 8px; cursor: pointer;
+  font-family: -apple-system, sans-serif;
+}
+#downloadBtn:hover { background: #a67526; }
+</style>
+</head>
+<body>
+
+<button id="downloadBtn">Download PNG</button>
+
+<div id="art" style="width:500px;height:500px;position:relative;overflow:hidden;background:radial-gradient(ellipse 420px 420px at 30% 20%,#375575 0%,transparent 60%),radial-gradient(ellipse 420px 420px at 80% 90%,#2f4b64 0%,transparent 60%),linear-gradient(160deg,#2c4459 0%,#1a2a38 100%);display:flex;align-items:center;justify-content:center;">
+
+  <div style="position:absolute;top:-100px;left:-90px;width:320px;height:320px;background:radial-gradient(circle,rgba(192,138,46,.32),rgba(192,138,46,.08) 55%,transparent 75%);"></div>
+  <div style="position:absolute;bottom:-110px;right:-90px;width:340px;height:340px;background:radial-gradient(circle,rgba(91,130,102,.28),rgba(91,130,102,.07) 55%,transparent 75%);"></div>
+
+  <svg width="180" height="180" viewBox="0 0 24 24" fill="none" style="position:relative;z-index:2;">
+    <path d="M12 2C7.58 2 4 5.58 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.42-3.58-8-8-8z" fill="#E0AC5C"/>
+    <circle cx="12" cy="10" r="3.4" fill="#1a2a38"/>
+  </svg>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+document.getElementById('downloadBtn').addEventListener('click', function () {
+  html2canvas(document.getElementById('art'), { scale: 2, useCORS: true }).then(function (canvas) {
+    var link = document.createElement('a');
+    link.download = 'gumroad-profile-avatar.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  });
+});
+</script>
+</body>
+</html>
