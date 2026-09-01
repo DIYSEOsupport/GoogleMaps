@@ -13,7 +13,7 @@ import pathlib
 
 PRODUCT_FILES = [
     "15-minute-quick-fix-checklist.html",
-    "google-maps-basic-checklist.html",
+    "get-found-on-google-maps.html",
     "the-complete-google-maps-guide.html",
     "business-category-and-search-terms-guide.html",
     "no-tech-quick-start-guide.html",
