@@ -4,7 +4,7 @@
 Usage:
   python3 watermark.py buyer@email.com ORDER123 [file1.html file2.html ...]
 
-With no files listed, stamps all 6 shippable product files and writes the
+With no files listed, stamps all 7 shippable product files and writes the
 output into a fresh folder named after the order ID, ready to zip and send.
 """
 import sys
@@ -13,6 +13,7 @@ import pathlib
 
 PRODUCT_FILES = [
     "15-minute-quick-fix-checklist.html",
+    "google-maps-basic-checklist.html",
     "the-complete-google-maps-guide.html",
     "business-category-and-search-terms-guide.html",
     "no-tech-quick-start-guide.html",
