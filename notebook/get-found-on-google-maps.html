@@ -68,6 +68,8 @@ body {
 }
 @keyframes shimmer { 0%{transform:translateX(-150%);} 60%,100%{transform:translateX(350%);} }
 .progress-label { font-size: 12px; color: var(--teal); font-weight: 700; white-space: nowrap; }
+.clear-all-btn { margin-left: 12px; font-size: 12px; font-weight: 700; color: var(--gray); background: none; border: 1px solid var(--gray); border-radius: 6px; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
+.clear-all-btn:hover { color: var(--teal); border-color: var(--teal); }
 
 /* Section head */
 .sec-head { display: flex; gap: 20px; align-items: flex-start; margin: 40px 0 22px; }
@@ -192,6 +194,7 @@ footer { text-align: center; color: var(--gray); font-size: 12px; margin-top: 44
     <div class="progress-inner">
         <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
         <div class="progress-label" id="progress-label">0% done</div>
+        <button type="button" id="clear-all-btn" class="clear-all-btn">Clear All</button>
     </div>
 </div>
 
@@ -433,6 +436,16 @@ A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, s
     var pct = total ? Math.round((done/total)*100) : 0;
     document.getElementById('progress-fill').style.width = pct + '%';
     document.getElementById('progress-label').textContent = pct + '% done';
+  }
+
+  var clearBtn = document.getElementById('clear-all-btn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function(){
+      if (!confirm('Clear all checked items? This cannot be undone.')) return;
+      boxes.forEach(function(b){ b.checked = false; });
+      safeSet({});
+      updateProgress();
+    });
   }
 
   boxes.forEach(function(b){
