@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get Found on Google Maps — DIY 15-Minute Fix Checklist</title>
+<title>Get Found on Google Maps — A Small Business Owner's Guide</title>
 <style>
-@import url('https://fonts.googleapis.com/css?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;700&family=Poppins:wght@600;700&display=swap');
 
 :root {
-    --teal: #3E5C76;
-    --teal-light: #E8EEF2;
-    --coral: #C08A2E;
-    --coral-light: #F5EBD9;
+    --teal: #4285F4;
+    --teal-light: #E8F0FE;
+    --coral: #EA4335;
+    --coral-light: #FCE8E6;
     --cream: #FAFAF9;
     --dark: #1F2530;
     --gray: #5B6472;
     --line: #E4E7EB;
-    --sage: #5B8266;
+    --sage: #34A853;
     --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     --serif: 'Fraunces', Georgia, serif;
 }
@@ -40,9 +40,19 @@ body {
     color: var(--coral); margin-bottom: 16px; text-transform: uppercase;
 }
 .cover h1 {
-    font-family: var(--serif); font-size: 36px; color: var(--teal);
-    margin: 0 0 14px; line-height: 1.12; font-weight: 700;
+    font-family: 'Poppins', var(--sans); font-size: 32px; color: var(--dark);
+    margin: 0 0 14px; line-height: 1.28; font-weight: 700;
 }
+.cover h1 .h1-line { display: block; }
+.cover h1 .line-to {
+    display: block; font-family: var(--sans); font-style: italic;
+    font-size: 16px; font-weight: 500; color: var(--gray); margin: 6px 0;
+}
+.g-blue { color: #4285F4; }
+.g-red { color: #EA4335; }
+.g-yellow { color: #FBBC05; }
+.g-green { color: #34A853; }
+.tm { font-size: .5em; }
 .cover p.sub { font-size: 15px; color: var(--dark); max-width: 480px; margin: 0 auto; }
 .rule { width: 60px; height: 2px; background: var(--coral); margin: 26px auto; border: none; }
 
@@ -57,7 +67,7 @@ body {
 .progress-fill {
     height: 100%; width: 0%; position: relative; overflow: hidden;
     background: linear-gradient(90deg, var(--teal), var(--coral));
-    box-shadow: 0 0 10px 1px rgba(192,138,46,.4);
+    box-shadow: 0 0 10px 1px rgba(234,67,53,.4);
     transition: width .5s ease, box-shadow .3s ease;
 }
 .progress-fill::after {
@@ -68,8 +78,8 @@ body {
 }
 @keyframes shimmer { 0%{transform:translateX(-150%);} 60%,100%{transform:translateX(350%);} }
 .progress-label { font-size: 12px; color: var(--teal); font-weight: 700; white-space: nowrap; }
-.clear-all-btn { margin-left: 12px; font-size: 12px; font-weight: 700; color: var(--gray); background: none; border: 1px solid var(--gray); border-radius: 6px; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
-.clear-all-btn:hover { color: var(--teal); border-color: var(--teal); }
+.clear-all-btn { margin-left: 12px; font-size: 12px; font-weight: 700; color: var(--gray); background: none; border: 1px solid var(--gray); border-radius: 6px; padding: 4px 10px; cursor: pointer; white-space: nowrap; transition: color .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.clear-all-btn:hover { color: var(--teal); border-color: var(--teal); box-shadow: 0 0 0 3px rgba(66,133,244,.15); }
 
 /* Section head */
 .sec-head { display: flex; gap: 20px; align-items: flex-start; margin: 40px 0 22px; }
@@ -81,8 +91,8 @@ body {
 .why { background: var(--teal-light); border-radius: 8px; padding: 14px 18px; margin: 0 0 20px; }
 .why-label { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: 7px; }
 .why ul { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.55; color: var(--dark); }
-.why a, p a { color: var(--coral); font-weight: 700; text-decoration: none; border-bottom: 1.4px solid var(--coral); }
-.why a:hover, p a:hover { opacity: .75; }
+.why a, p a { color: var(--coral); font-weight: 700; text-decoration: none; border-bottom: 1.4px solid var(--coral); transition: text-shadow .15s ease, opacity .15s ease; }
+.why a:hover, p a:hover { opacity: .75; text-shadow: 0 0 8px rgba(234,67,53,.35); }
 
 /* Checklist */
 .checklist { list-style: none; margin: 0; padding: 0; }
@@ -90,9 +100,9 @@ body {
     display: flex; gap: 14px; align-items: flex-start;
     padding: 12px 10px; margin: 0 -10px;
     border-bottom: 1px solid var(--line); border-radius: 6px;
-    transition: background .15s ease;
+    transition: background .15s ease, box-shadow .2s ease;
 }
-.checklist li:hover { background: var(--teal-light); }
+.checklist li:hover { background: var(--teal-light); box-shadow: 0 0 0 1px rgba(66,133,244,.18), 0 2px 10px rgba(66,133,244,.15); }
 .checklist li:last-child { border-bottom: none; }
 .checklist input[type=checkbox] {
     appearance: none; -webkit-appearance: none;
@@ -103,7 +113,7 @@ body {
 }
 .checklist input[type=checkbox]:checked {
     background: var(--teal);
-    box-shadow: 0 0 0 5px rgba(62,92,118,.25);
+    box-shadow: 0 0 0 5px rgba(66,133,244,.25);
 }
 .checklist input[type=checkbox]:checked::after {
     content: ""; position: absolute; left: 5px; top: 1px;
@@ -123,23 +133,27 @@ body {
 /* Reference table */
 .reftable { width: 100%; border-collapse: collapse; margin: 14px 0 6px; font-size: 12.5px; }
 .reftable th {
-    background: linear-gradient(135deg, var(--teal), #2c4459);
+    background: linear-gradient(135deg, var(--teal), #4C2FD1);
     color: #fff; font-size: 10.5px; text-align: left; padding: 9px 10px; font-weight: 700;
 }
-.reftable th:nth-child(2) { background: linear-gradient(135deg, var(--coral), #8f6a22); }
-.reftable th:nth-child(3) { background: linear-gradient(135deg, var(--sage), #446750); }
+.reftable th:nth-child(2) { background: linear-gradient(135deg, var(--coral), #C21F63); }
+.reftable th:nth-child(3) { background: linear-gradient(135deg, var(--sage), #0D8377); }
 .reftable td { border: 1px solid var(--line); padding: 9px 10px; vertical-align: top; }
 .reftable td:nth-child(2) { color: var(--coral); font-weight: 700; }
 .reftable tr:nth-child(even) td { background: #fff; }
 .reftable tr:nth-child(odd) td { background: var(--cream); }
+.reftable tr { transition: box-shadow .2s ease; }
 .reftable tr:hover td { background: var(--teal-light); }
+.reftable tr:hover { box-shadow: 0 0 0 1px rgba(66,133,244,.2) inset; }
 .table-scroll { overflow-x: auto; }
 
 /* Troubleshoot */
 .troubleshoot {
     background: #fff; border: 1px solid var(--line); border-left: 3.5px solid var(--teal);
     border-radius: 6px; padding: 11px 14px; margin: 18px 0 6px; font-size: 13px;
+    transition: box-shadow .2s ease;
 }
+.troubleshoot:hover, .troubleshoot[open] { box-shadow: 0 2px 14px rgba(66,133,244,.18); }
 .troubleshoot summary {
     font-weight: 700; color: var(--teal); cursor: pointer; list-style: none;
     display: flex; justify-content: space-between; align-items: center;
@@ -152,10 +166,12 @@ body {
 
 /* Upsell */
 .upsell-box {
-    background: linear-gradient(135deg, #FFFDF9, #F7EFE2);
+    background: linear-gradient(135deg, #FFF7FB, #FFE9F2);
     border: 1.5px dashed var(--coral); border-radius: 8px;
     padding: 15px 18px; margin: 28px 0 10px;
+    transition: box-shadow .25s ease;
 }
+.upsell-box:hover { box-shadow: 0 4px 20px rgba(234,67,53,.22); }
 .upsell-badge {
     display: inline-block; background: var(--coral); color: #fff;
     font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
@@ -165,9 +181,21 @@ body {
 .upsell-box a { color: var(--coral); font-weight: 700; text-decoration: none; border-bottom: 1.4px solid var(--coral); }
 
 .template-box {
+    position: relative;
     background: #fff; border: 1px solid var(--line); border-left: 3.5px solid var(--sage);
     border-radius: 6px; padding: 14px 16px; margin: 14px 0;
+    transition: box-shadow .2s ease;
 }
+.template-box:hover { box-shadow: 0 2px 14px rgba(52,168,83,.18); }
+.copy-btn {
+    position: absolute; top: 10px; right: 12px;
+    font-size: 11px; font-weight: 700; color: var(--sage);
+    background: #fff; border: 1px solid var(--sage); border-radius: 5px;
+    padding: 3px 9px; cursor: pointer;
+    transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.copy-btn:hover { background: var(--sage); color: #fff; box-shadow: 0 0 8px rgba(52,168,83,.4); }
+.copy-btn.copied { background: var(--sage); color: #fff; }
 .template-label { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; }
 .template-fill { font-family: 'Courier New', monospace; font-size: 12.8px; line-height: 1.65; color: var(--dark); background: var(--cream); border-radius: 4px; padding: 10px 12px; white-space: pre-wrap; }
 .template-fill b { color: var(--coral); font-weight: 700; }
@@ -188,7 +216,7 @@ footer { text-align: center; color: var(--gray); font-size: 12px; margin-top: 44
 </style>
 </head>
 <body>
-<!-- LICENSE: {{BUYER_EMAIL}} / order {{ORDER_ID}} / purchased {{PURCHASE_DATE}} - The Google Maps Fix is licensed for single-buyer use, not resale or redistribution. -->
+<!-- LICENSE: {{BUYER_EMAIL}} / order {{ORDER_ID}} / purchased {{PURCHASE_DATE}} - The Google Maps Guide is licensed for single-buyer use, not resale or redistribution. -->
 
 <div class="progress-bar-wrap">
     <div class="progress-inner">
@@ -201,22 +229,16 @@ footer { text-align: center; color: var(--gray); font-size: 12px; margin-top: 44
 <div class="wrap">
 
   <div class="cover">
-    <div class="kicker">Get Found on Google Maps — DIY 15-Minute Fix Checklist</div>
-    <h1>Fix the Free Google Listing That's Losing You Customers</h1>
-    <div class="price-badge">
-      <span class="price-old">$12</span>
-      <span class="price-new">$9</span>
-      <span class="price-tag">Limited Time</span>
-    </div>
+    <h1><span class="h1-line">A Small Business Owner's Guide</span><span class="line-to">to</span><span class="h1-line">Getting Found on <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span> Maps</span><sup class="tm">&reg;</sup></h1>
     <hr class="rule">
-    <p class="sub">When someone searches Google for a business like yours, your ranking decides if you show up — or a competitor does. Your free Google Business Profile (hours, photos, reviews on Maps) controls that ranking. Most owners set it up once and never touch it again, so it quietly falls behind. This 15-minute checklist fixes it. Check items off below — progress saves automatically.</p>
+    <p class="sub">When someone searches Google for a business like yours, your ranking decides if you show up — or a competitor does. Your free Google Business Profile (hours, photos, reviews on Maps) controls that ranking. Most owners set it up once and never touch it again, so it quietly falls behind. This guide gets it in order. Check items off below — progress saves automatically.</p>
   </div>
 
   <div class="sec-head">
     <div class="sec-num">01</div>
     <div>
-      <h2 class="sec-title">The 15-Minute Profile Audit</h2>
-      <p class="sec-sub">Fix what's keeping you from showing up in search.</p>
+      <h2 class="sec-title">The Profile Audit</h2>
+      <p class="sec-sub">What's keeping you from showing up in search.</p>
     </div>
   </div>
 
@@ -248,8 +270,8 @@ footer { text-align: center; color: var(--gray); font-size: 12px; margin-top: 44
     <li><input type="checkbox" id="audit-photos"><label for="audit-photos"><b>Photos:</b> Upload the 4 essential shots this week, then add one new photo every week or two — see the photo plan further down this page for exactly which ones and why.</label></li>
     <li><input type="checkbox" id="audit-action"><label for="audit-action"><b>Action Link:</b> Add a button for booking, requesting a quote, or viewing your menu — whatever lets someone take the next step without calling.</label></li>
     <li><input type="checkbox" id="audit-desc"><label for="audit-desc"><b>Description:</b> Write a short paragraph covering what you do, who you serve, and the area you cover.</label></li>
-    <li><input type="checkbox" id="audit-attrs"><label for="audit-attrs"><b>Attributes:</b> Check every box that's true for your business (e.g. "wheelchair accessible," "free Wi-Fi"). These are the filters people use when searching.</label></li>
-    <li><input type="checkbox" id="audit-msg"><label for="audit-msg"><b>Messaging:</b> Turn this on and set an auto-reply — but only if you'll actually check messages daily, since a slow reply looks worse than having it off.</label></li>
+    <li><input type="checkbox" id="audit-attrs"><label for="audit-attrs"><b>Attributes:</b> Check every box that's true for your business — accessibility and amenities (e.g. "wheelchair accessible," "free Wi-Fi"), business type ("family-owned," "solo/independently owned," "contractor"), and identity ("women-led," "Black-owned," "LGBTQ+ friendly," "LGBTQ+ owned," "veteran-owned"). These are the filters people use when searching.</label></li>
+    <li><input type="checkbox" id="audit-msg"><label for="audit-msg"><b>Messaging:</b> Turn this on and set an auto-reply — but only if you'll actually check messages daily, since a slow reply looks worse than having it off. Suggested auto-reply: "Thanks for reaching out! We've received your message and reply to every one within 24 hours. For anything urgent, call us at [phone number]."</label></li>
     <li><input type="checkbox" id="audit-qanda"><label for="audit-qanda"><b>Q&amp;A:</b> Post 2–3 common questions and answer them yourself, so a stranger doesn't post something wrong or misleading first.</label></li>
     <li><input type="checkbox" id="audit-catalog"><label for="audit-catalog"><b>Products/Services:</b> List at least 3, each with a photo and a price, so people know what you offer before they contact you.</label></li>
   </ul>
@@ -261,6 +283,7 @@ footer { text-align: center; color: var(--gray); font-size: 12px; margin-top: 44
 
   <div class="template-box">
     <div class="template-label">Business Description</div>
+    <button type="button" class="copy-btn">Copy</button>
     <div class="template-fill"><b>[Business Name]</b> is a <b>[type of business]</b> serving <b>[city/area]</b> and the surrounding communities. We specialize in <b>[core service or product]</b>, and what sets us apart is <b>[what makes you different — e.g. same-day service, family-owned, certified/licensed]</b>. Since <b>[year you started]</b>, we've helped <b>[type of customer]</b> with <b>[the specific result they came to you for]</b>. <b>[Call to action — e.g. "Call today for a free quote" or "Stop by and see us"]</b>.</div>
     <p class="template-note">Keep it under 750 characters — that's the limit Google gives you.</p>
     <p class="template-note"><b>Example — home service business:</b> "Rivertown Lawn Care is a lawn care and landscaping company serving Rivertown and the surrounding suburbs. We specialize in weekly mowing, mulching, and fall cleanups, and what sets us apart is same-week scheduling and a satisfaction guarantee on every job. Since 2016, we've helped over 300 local homeowners keep their yards looking sharp without lifting a finger. Call today for a free quote."</p>
@@ -270,6 +293,7 @@ footer { text-align: center; color: var(--gray); font-size: 12px; margin-top: 44
 
   <div class="template-box">
     <div class="template-label">Q&amp;A Starter Pack</div>
+    <button type="button" class="copy-btn">Copy</button>
     <div class="template-fill">Q: What areas do you serve?
 A: We serve <b>[city]</b> and the surrounding <b>[county/region]</b>. Not sure if we cover your address? Send us a message.
 
@@ -277,12 +301,33 @@ Q: Do you offer free estimates or quotes?
 A: <b>[Yes/No]</b> — <b>[how to request one, e.g. "call us or message us here and we'll get back to you within a day"]</b>.
 
 Q: What makes you different from other <b>[your industry]</b> businesses nearby?
-A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, satisfaction guarantee]</b>.</div>
+A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, satisfaction guarantee]</b>.
+
+Q: What are your hours?
+A: <b>[Days/hours]</b>. <b>[Any exceptions, e.g. "closed major holidays" or "open by appointment on weekends"]</b>.
+
+Q: Do you accept walk-ins, or do I need an appointment?
+A: <b>[Answer]</b> — <b>[how to book if one's needed, e.g. "book online here" or "just call ahead"]</b>.
+
+Q: What forms of payment do you accept?
+A: We accept <b>[cash, card, Venmo, etc.]</b>.</div>
     <p class="template-note">Post these yourself under the Q&amp;A tab — see Step 2 above. It stops a stranger from posting a wrong or misleading answer first.</p>
   </div>
 
   <div class="template-box">
+    <div class="template-label">Review Reply Starters</div>
+    <button type="button" class="copy-btn">Copy</button>
+    <div class="template-fill">GOOD REVIEW:
+Thank you, <b>[name]</b>! We're so glad you had a great experience with <b>[specific thing they mentioned]</b>. We look forward to seeing you again.
+
+BAD REVIEW:
+Hi <b>[name]</b>, thank you for the feedback. We're sorry to hear about <b>[the issue, restated briefly and without defensiveness]</b> — that's not the experience we want for our customers. Please reach out to us directly at <b>[phone/email]</b> so we can make it right.</div>
+    <p class="template-note">Reply to every review, good or bad, within a few days — Google counts owner responses as another activity signal, and other customers read them before booking.</p>
+  </div>
+
+  <div class="template-box">
     <div class="template-label">Google Post Caption</div>
+    <button type="button" class="copy-btn">Copy</button>
     <div class="template-fill"><b>[What's new — a product, a seasonal offer, an event]</b>. <b>[One sentence on why it matters to the customer]</b>. <b>[Call to action — e.g. "Call now," "Book online," "Stop in this week"]</b>.</div>
     <p class="template-note">Google Posts show up directly on your profile and expire after 7 days — a fresh one every week or two signals to Google that you're active.</p>
     <p class="template-note"><b>Example — home service business:</b> "Fall cleanup slots are filling up fast this month. Book now and we'll have your yard ready before the leaves pile up. Call or message us today to grab a spot."</p>
@@ -352,7 +397,7 @@ A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, s
       <p><b>• Work from home, don't want your address public?</b><br>
       Set your profile as a Service Area Business — hide your street address and set a service radius instead.</p>
       <p><b>• Listing suspended out of nowhere?</b><br>
-      Usually caused by a recent edit that looked spammy to Google (a keyword-stuffed name, wrong category, or address mismatch). Go to business.google.com, check the notification for the specific reason, fix that one issue, then file a reinstatement request from the same dashboard. It typically takes a few days to a couple weeks — don't make more edits while it's under review, that resets the clock.</p>
+      Usually caused by a recent edit that looked spammy to Google (a keyword-stuffed name, wrong category, or address mismatch). Go to business.google.com, check the notification for the specific reason, resolve that one issue, then file a reinstatement request from the same dashboard. It typically takes a few days to a couple weeks — don't make more edits while it's under review, that resets the clock.</p>
       <p><b>• Someone else already claimed your business?</b><br>
       This happens with listings Google auto-generated years ago. Search for your business on Google Maps, click "Claim this business," and choose "Request access" — Google will prompt the current owner to respond, or let you verify ownership directly if it's been inactive.</p>
       <p><b>• A duplicate listing is competing with yours?</b><br>
@@ -382,7 +427,7 @@ A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, s
     <li><input type="checkbox" id="results-direct"><label for="results-direct"><b>New Customers Are Finding You:</b> Look for "Discovery" searches climbing — those are people who found you by searching your category, not your business name, meaning you're reaching people who didn't already know you.</label></li>
   </ul>
   <p class="note"><b>What's a healthy number?</b> There's no universal target since it depends on your industry and area, but as a rough benchmark, local SEO studies generally find well-optimized profiles convert somewhere around 5–10% of their views into an action — a call, a direction request, or a website click. If you're well under that after a full 2 weeks, it's worth reviewing your photos and description again, not just your numbers.</p>
-  <p class="note"><b>No movement after 2 weeks?</b> Go back and re-check Step 1 (Verification &amp; Category). An unverified profile or the wrong category will cap every number on this page, no matter what else you fix.</p>
+  <p class="note"><b>No movement after 2 weeks?</b> Go back and re-check Step 1 (Verification &amp; Category). An unverified profile or the wrong category will cap every number on this page, no matter what else you update.</p>
 
   <div class="sec-head">
     <div>
@@ -393,6 +438,7 @@ A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, s
   </div>
 
   <div class="template-box">
+    <button type="button" class="copy-btn">Copy</button>
     <p style="margin:0 0 10px; font-size:13px;">One caption for roughly every 5 weeks. Fill in the brackets and post whichever fits the current month.</p>
     <div class="template-fill">1. New Year: New year, new <b>[service/look/menu item]</b>. Kick off <b>[year]</b> with <b>[offer]</b>. <b>[Call to action]</b>.
 
@@ -416,7 +462,7 @@ A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, s
     <p class="template-note">Post one every 1–2 weeks in rough order through the year, swapping in whatever's actually true for your business that month.</p>
   </div>
 
-  <footer>Get Found on Google Maps — DIY 15-Minute Fix Checklist</footer>
+  <footer>Get Found on Google Maps — A Small Business Owner's Guide</footer>
 </div>
 
 <script>
@@ -458,6 +504,18 @@ A: <b>[Your honest answer — e.g. licensed and insured, 10+ years experience, s
   });
 
   updateProgress();
+
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var fill = btn.closest('.template-box').querySelector('.template-fill');
+      navigator.clipboard.writeText(fill.innerText).then(function(){
+        var original = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = original; btn.classList.remove('copied'); }, 1500);
+      });
+    });
+  });
 })();
 </script>
 </body>
